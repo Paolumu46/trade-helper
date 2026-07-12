@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PULSEDESK — Smart Trading Intelligence</title>
+<title>PULSEDESK — Real-Time Trading Intelligence</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -124,103 +124,6 @@
     50% { box-shadow: 0 0 0 8px rgba(0, 212, 170, 0); }
   }
   
-  @keyframes pulse-gold {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(240, 185, 11, 0.6); }
-    50% { box-shadow: 0 0 0 8px rgba(240, 185, 11, 0); }
-  }
-  
-  .pulse-emerald { animation: pulse-emerald 2s ease-in-out infinite; }
-  .pulse-gold { animation: pulse-gold 2s ease-in-out infinite; }
-  
-  /* Ticker animation */
-  @keyframes scroll-x {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-  
-  .ticker-track {
-    animation: scroll-x 80s linear infinite;
-  }
-  
-  .ticker-track:hover {
-    animation-play-state: paused;
-  }
-  
-  /* Session bar */
-  .session-bar {
-    height: 4px;
-    border-radius: 2px;
-    overflow: hidden;
-    background: var(--bg-elevated);
-    position: relative;
-  }
-  
-  .session-bar-fill {
-    height: 100%;
-    border-radius: 2px;
-    transition: width 1s ease;
-    position: relative;
-  }
-  
-  .session-bar-fill::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: white;
-    box-shadow: 0 0 8px currentColor;
-  }
-  
-  /* Trend indicator */
-  .trend-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 8px;
-    border-radius: 6px;
-    font-family: 'JetBrains Mono', monospace;
-    letter-spacing: 0.5px;
-  }
-  
-  .trend-bullish { color: var(--emerald); background: rgba(0, 212, 170, 0.12); border: 1px solid rgba(0, 212, 170, 0.25); }
-  .trend-bearish { color: var(--red); background: rgba(255, 71, 87, 0.12); border: 1px solid rgba(255, 71, 87, 0.25); }
-  .trend-neutral { color: var(--text-muted); background: rgba(107, 114, 128, 0.12); border: 1px solid rgba(107, 114, 128, 0.25); }
-  
-  /* Impact badges */
-  .impact-high { background: rgba(255, 71, 87, 0.15); color: var(--red); border: 1px solid rgba(255, 71, 87, 0.3); }
-  .impact-medium { background: rgba(240, 185, 11, 0.15); color: var(--gold); border: 1px solid rgba(240, 185, 11, 0.3); }
-  .impact-low { background: rgba(107, 114, 128, 0.15); color: var(--text-secondary); border: 1px solid rgba(107, 114, 128, 0.3); }
-  
-  /* Timeframe button */
-  .timeframe-btn {
-    padding: 6px 14px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 600;
-    background: var(--bg-elevated);
-    color: var(--text-secondary);
-    border: 1px solid var(--border);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-family: 'JetBrains Mono', monospace;
-  }
-  
-  .timeframe-btn:hover {
-    background: var(--bg-card-hover);
-    color: var(--text-primary);
-  }
-  
-  .timeframe-btn.active {
-    background: linear-gradient(135deg, var(--gold), var(--gold-bright));
-    color: #07090f;
-    border-color: var(--gold);
-  }
-  
-  /* Status dot */
   .status-dot {
     width: 8px;
     height: 8px;
@@ -260,27 +163,6 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-  }
-  
-  /* Pair card */
-  .pair-card {
-    cursor: pointer;
-    transition: all 0.2s ease;
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 14px;
-  }
-  
-  .pair-card:hover {
-    transform: translateY(-2px);
-    border-color: var(--gold);
-    box-shadow: 0 8px 24px rgba(240, 185, 11, 0.08);
-  }
-  
-  .pair-card.active {
-    border-color: var(--gold);
-    background: linear-gradient(135deg, rgba(240, 185, 11, 0.08), rgba(255, 140, 66, 0.04));
   }
   
   /* Recommended pair item */
@@ -336,58 +218,73 @@
     box-shadow: 0 0 8px rgba(240, 185, 11, 0.4);
   }
   
-  /* Calendar item */
-  .cal-item {
-    display: grid;
-    grid-template-columns: auto auto 1fr auto;
-    gap: 12px;
-    align-items: center;
-    padding: 12px;
+  /* Timeframe button */
+  .timeframe-btn {
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
     background: var(--bg-elevated);
+    color: var(--text-secondary);
     border: 1px solid var(--border);
-    border-radius: 10px;
+    cursor: pointer;
     transition: all 0.2s ease;
+    font-family: 'JetBrains Mono', monospace;
   }
   
-  .cal-item:hover {
-    border-color: var(--border-bright);
+  .timeframe-btn:hover {
     background: var(--bg-card-hover);
+    color: var(--text-primary);
   }
   
-  /* Indicator box */
-  .indicator-box {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 12px;
-    position: relative;
+  .timeframe-btn.active {
+    background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+    color: #07090f;
+    border-color: var(--gold);
+  }
+  
+  .trend-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.5px;
+  }
+  
+  .trend-bullish { color: var(--emerald); background: rgba(0, 212, 170, 0.12); border: 1px solid rgba(0, 212, 170, 0.25); }
+  .trend-bearish { color: var(--red); background: rgba(255, 71, 87, 0.12); border: 1px solid rgba(255, 71, 87, 0.25); }
+  .trend-neutral { color: var(--text-muted); background: rgba(107, 114, 128, 0.12); border: 1px solid rgba(107, 114, 128, 0.25); }
+  
+  /* Session bar */
+  .session-bar {
+    height: 4px;
+    border-radius: 2px;
     overflow: hidden;
+    background: var(--bg-elevated);
+    position: relative;
   }
   
-  .indicator-box::before {
+  .session-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 1s ease;
+    position: relative;
+  }
+  
+  .session-bar-fill::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
     right: 0;
-    height: 2px;
-    background: var(--accent, var(--gold));
-    opacity: 0.6;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: white;
+    box-shadow: 0 0 8px currentColor;
   }
-  
-  /* Number flash */
-  @keyframes flash-up {
-    0% { background: rgba(0, 212, 170, 0.3); }
-    100% { background: transparent; }
-  }
-  
-  @keyframes flash-down {
-    0% { background: rgba(255, 71, 87, 0.3); }
-    100% { background: transparent; }
-  }
-  
-  .flash-up { animation: flash-up 0.6s ease-out; }
-  .flash-down { animation: flash-down 0.6s ease-out; }
   
   /* Toast */
   .toast {
@@ -412,16 +309,77 @@
     opacity: 1;
   }
   
-  canvas { display: block; }
-  
-  /* Glow text */
-  .glow-gold {
-    text-shadow: 0 0 24px rgba(240, 185, 11, 0.5);
+  /* TradingView Widget Containers */
+  .tv-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
   }
   
-  /* Hide ticker on small screens */
-  @media (max-width: 768px) {
-    .ticker-container { display: none; }
+  .tv-chart-wrapper {
+    height: 450px;
+    position: relative;
+  }
+  
+  .tv-ticker-wrapper {
+    height: 46px;
+  }
+  
+  .tv-calendar-wrapper {
+    height: 600px;
+  }
+  
+  .tv-mini-wrapper {
+    height: 200px;
+  }
+  
+  /* Loading Spinner */
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid rgba(240, 185, 11, 0.2);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  /* Pair selector */
+  .pair-select-btn {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 13px;
+  }
+  
+  .pair-select-btn:hover {
+    background: var(--bg-card-hover);
+    color: var(--gold);
+    border-color: var(--gold);
+  }
+  
+  .pair-select-btn.active {
+    background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+    color: #07090f;
+    border-color: var(--gold);
   }
 </style>
 </head>
@@ -438,11 +396,11 @@
       <div class="flex items-center gap-4">
         <div class="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-yellow-400 via-amber-500 to-orange-600 flex items-center justify-center shadow-lg shadow-amber-500/30">
           <i class="fa-solid fa-chart-line text-black text-2xl"></i>
-          <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-400 rounded-full border-2 border-[#07090f] pulse-emerald"></div>
+          <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-400 rounded-full border-2 border-[#07090f] pulse-emerald" style="animation: pulse-emerald 2s ease-in-out infinite;"></div>
         </div>
         <div>
           <h1 class="display text-3xl font-bold tracking-tight">PULSE<span class="headline-gradient">DESK</span></h1>
-          <p class="text-xs text-gray-500 mono tracking-wider">SMART TRADING INTELLIGENCE TERMINAL</p>
+          <p class="text-xs text-gray-500 mono tracking-wider">REAL-TIME TRADING INTELLIGENCE TERMINAL</p>
         </div>
       </div>
       
@@ -451,7 +409,7 @@
           <span class="status-dot active" id="market-status-dot"></span>
           <div>
             <div class="text-sm font-semibold" id="market-status-text">ตลาดเปิด</div>
-            <div class="text-[10px] text-gray-500 mono" id="active-sessions-count">2 sessions active</div>
+            <div class="text-[10px] text-gray-500 mono" id="active-sessions-count">Calculating sessions...</div>
           </div>
         </div>
         
@@ -462,23 +420,17 @@
       </div>
     </header>
     
-    <!-- LIVE TICKER -->
-    <div class="card mb-6 overflow-hidden ticker-container">
-      <div class="flex">
-        <div class="bg-gradient-to-r from-amber-500/20 to-transparent px-4 py-3 flex items-center gap-2 border-r border-[#1e2533] flex-shrink-0">
-          <i class="fa-solid fa-bolt text-yellow-400 text-xs"></i>
-          <span class="text-xs font-bold text-yellow-400 mono tracking-wider">LIVE</span>
-        </div>
-        <div class="overflow-hidden flex-1 py-3">
-          <div class="ticker-track flex gap-8 whitespace-nowrap" id="ticker"></div>
-        </div>
+    <!-- LIVE TICKER (TradingView) -->
+    <div class="card mb-6 overflow-hidden">
+      <div class="tv-ticker-wrapper" id="tv-ticker">
+        <div class="loader"><div class="spinner"></div></div>
       </div>
     </div>
     
     <!-- MAIN GRID -->
     <div class="grid grid-cols-12 gap-6 mb-6">
       
-      <!-- LEFT: Sessions + Recommended Pairs -->
+      <!-- LEFT: Sessions + Recommended Pairs + Market Overview -->
       <div class="col-span-12 lg:col-span-4 space-y-6">
         
         <!-- SESSIONS PANEL -->
@@ -500,132 +452,65 @@
           </p>
           <div class="space-y-2" id="recommended-pairs"></div>
         </div>
+        
+        <!-- MARKET OVERVIEW MINI (TradingView) -->
+        <div class="card p-5">
+          <div class="section-title">
+            <h2 class="text-lg font-semibold flex-1">ภาพรวมตลาด</h2>
+          </div>
+          <div class="tv-mini-wrapper" id="tv-market-overview">
+            <div class="loader"><div class="spinner"></div></div>
+          </div>
+        </div>
       </div>
       
       <!-- RIGHT: Main Chart + Analysis -->
       <div class="col-span-12 lg:col-span-8 space-y-6">
         
-        <!-- MAIN CHART -->
+        <!-- MAIN CHART (TradingView) -->
         <div class="card p-5">
           <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-4">
             <div>
               <div class="flex items-center gap-3 flex-wrap">
                 <h2 class="text-2xl font-bold mono" id="main-pair-symbol">XAU/USD</h2>
-                <span class="text-xs text-gray-500" id="main-pair-name">Gold Spot / US Dollar</span>
-                <span class="trend-badge trend-bullish" id="main-pair-trend">
-                  <i class="fa-solid fa-arrow-trend-up"></i> BULLISH
-                </span>
-              </div>
-              <div class="flex items-baseline gap-3 mt-2">
-                <span class="text-3xl font-bold mono tabular-nums" id="main-pair-price">2,034.50</span>
-                <span class="text-sm mono font-semibold" id="main-pair-change">+12.30 (+0.61%)</span>
+                <span class="text-xs text-gray-500">Live Chart by TradingView</span>
               </div>
             </div>
-            <div class="flex gap-2">
-              <button class="timeframe-btn" data-tf="15M">15M</button>
-              <button class="timeframe-btn active" data-tf="1H">1H</button>
-              <button class="timeframe-btn" data-tf="4H">4H</button>
-              <button class="timeframe-btn" data-tf="1D">1D</button>
-              <button class="timeframe-btn" data-tf="1W">1W</button>
+            <div class="flex gap-2 flex-wrap">
+              <button class="pair-select-btn active" data-symbol="OANDA:XAUUSD" data-display="XAU/USD">XAU/USD</button>
+              <button class="pair-select-btn" data-symbol="OANDA:EURUSD" data-display="EUR/USD">EUR/USD</button>
+              <button class="pair-select-btn" data-symbol="OANDA:GBPUSD" data-display="GBP/USD">GBP/USD</button>
+              <button class="pair-select-btn" data-symbol="OANDA:USDJPY" data-display="USD/JPY">USD/JPY</button>
             </div>
           </div>
-          <div class="relative">
-            <canvas id="main-chart" class="w-full" style="height: 340px;"></canvas>
+          <div class="tv-chart-wrapper" id="tv-chart">
+            <div class="loader"><div class="spinner"></div></div>
           </div>
         </div>
         
         <!-- MARKET ANALYSIS -->
         <div class="card p-5">
           <div class="section-title">
-            <h2 class="text-lg font-semibold flex-1">วิเคราะห์กราฟปัจจุบัน</h2>
-            <span class="text-xs mono text-gray-500" id="analysis-tf">1H Timeframe</span>
+            <h2 class="text-lg font-semibold flex-1">สถานการณ์ตลาด & การวิเคราะห์</h2>
           </div>
           
-          <!-- Indicators grid -->
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
-            <div class="indicator-box" style="--accent: var(--gold);">
-              <div class="text-xs text-gray-500 mb-1 flex items-center gap-1">
-                <i class="fa-solid fa-wave-square text-[10px]"></i> RSI (14)
-              </div>
-              <div class="flex items-end gap-2">
-                <span class="text-xl font-bold mono" id="ind-rsi">71.2</span>
-                <span class="text-[10px] mb-1" id="ind-rsi-label">Overbought</span>
-              </div>
-            </div>
-            <div class="indicator-box" style="--accent: var(--emerald);">
-              <div class="text-xs text-gray-500 mb-1 flex items-center gap-1">
-                <i class="fa-solid fa-chart-area text-[10px]"></i> MACD
-              </div>
-              <div class="flex items-end gap-2">
-                <span class="text-xl font-bold mono" id="ind-macd">+0.42</span>
-                <span class="text-[10px] mb-1 text-emerald-400" id="ind-macd-label">Bullish</span>
-              </div>
-            </div>
-            <div class="indicator-box" style="--accent: var(--orange);">
-              <div class="text-xs text-gray-500 mb-1 flex items-center gap-1">
-                <i class="fa-solid fa-arrows-left-right text-[10px]"></i> Bollinger
-              </div>
-              <div class="flex items-end gap-2">
-                <span class="text-xl font-bold mono" id="ind-bb">Upper</span>
-                <span class="text-[10px] mb-1 text-orange-400" id="ind-bb-label">Breakout</span>
-              </div>
-            </div>
-            <div class="indicator-box" style="--accent: var(--rose);">
-              <div class="text-xs text-gray-500 mb-1 flex items-center gap-1">
-                <i class="fa-solid fa-chart-column text-[10px]"></i> Volume
-              </div>
-              <div class="flex items-end gap-2">
-                <span class="text-xl font-bold mono" id="ind-vol">1.8x</span>
-                <span class="text-[10px] mb-1 text-rose-400" id="ind-vol-label">High</span>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Support / Resistance -->
-          <div class="grid grid-cols-3 gap-3 mb-4">
-            <div class="bg-[#0d1117] rounded-lg p-3 border border-[#1e2533]">
-              <div class="text-[10px] text-gray-500 uppercase tracking-wider mb-1">Support</div>
-              <div class="mono font-bold text-emerald-400" id="support-level">2,018.40</div>
-            </div>
-            <div class="bg-[#0d1117] rounded-lg p-3 border border-[#1e2533]">
-              <div class="text-[10px] text-gray-500 uppercase tracking-wider mb-1">Pivot</div>
-              <div class="mono font-bold text-yellow-400" id="pivot-level">2,028.50</div>
-            </div>
-            <div class="bg-[#0d1117] rounded-lg p-3 border border-[#1e2533]">
-              <div class="text-[10px] text-gray-500 uppercase tracking-wider mb-1">Resistance</div>
-              <div class="mono font-bold text-red-400" id="resistance-level">2,048.60</div>
-            </div>
-          </div>
-          
-          <!-- AI Analysis -->
+          <!-- AI-Like Analysis based on News/Sessions -->
           <div class="bg-gradient-to-br from-[#0d1117] to-[#161b29] rounded-lg p-4 border border-[#1e2533]">
             <div class="flex items-center gap-2 mb-3">
               <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
                 <i class="fa-solid fa-brain text-black text-sm"></i>
               </div>
               <div>
-                <div class="text-sm font-semibold">การวิเคราะห์อัตโนมัติ</div>
-                <div class="text-[10px] text-gray-500 mono">AI SIGNAL — อัปเดตล่าสุด</div>
+                <div class="text-sm font-semibold">การวิเคราะห์อัตโนมัติ (Auto Market Read)</div>
+                <div class="text-[10px] text-gray-500 mono">อิงจาก Session และหัวข้อข่าวปัจจุบัน</div>
               </div>
-              <span class="ml-auto trend-badge" id="signal-badge">
-                <i class="fa-solid fa-circle-check"></i> BUY
-              </span>
             </div>
             <p class="text-sm text-gray-300 leading-relaxed" id="analysis-text">
-              กราฟ XAU/USD บน timeframe 1H กำลังทำพฤติกรรม Bullish Continuation หลังจาก Breakout ผ่านแนวต้าน 2,028 ดอลลาร์ โดยมี Volume สูงกว่าค่าเฉลี่ย 1.8 เท่า สนับสนุนแนวโน้มขาขึ้น RSI อยู่ที่ 71.2 เข้าสู่โซน Overbought แต่ยังไม่มีสัญญาณ Divergence แนะนำให้ซื้อตามเทรนด์ โดยตั้ง Stop Loss ที่ 2,018 และ Take Profit ที่ 2,048
+              กำลังวิเคราะห์ข้อมูลตลาดและหัวข้อข่าวสด...
             </p>
           </div>
         </div>
       </div>
-    </div>
-    
-    <!-- MARKET OVERVIEW GRID -->
-    <div class="card p-5 mb-6">
-      <div class="section-title">
-        <h2 class="text-lg font-semibold flex-1">ภาพรวมตลาด</h2>
-        <span class="text-xs text-gray-500 mono" id="pairs-count">8 instruments</span>
-      </div>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3" id="market-grid"></div>
     </div>
     
     <!-- NEWS & CALENDAR -->
@@ -633,23 +518,27 @@
       <div class="col-span-12 lg:col-span-7">
         <div class="card p-5 h-full">
           <div class="section-title">
-            <h2 class="text-lg font-semibold flex-1">ข่าวที่มีผลต่อตลาด</h2>
+            <h2 class="text-lg font-semibold flex-1">ข่าวเศรษฐกิจสด (Real-time News)</h2>
             <span class="text-xs text-gray-500 flex items-center gap-1">
-              <span class="w-1.5 h-1.5 bg-red-500 rounded-full pulse-emerald"></span>
-              Real-time
+              <span class="w-1.5 h-1.5 bg-red-500 rounded-full" style="animation: pulse-emerald 2s ease-in-out infinite;"></span>
+              Live RSS Feed
             </span>
           </div>
-          <div class="space-y-0 max-h-[600px] overflow-y-auto pr-2" id="news-container"></div>
+          <div class="space-y-0 max-h-[700px] overflow-y-auto pr-2" id="news-container">
+            <div class="loader py-10"><div class="spinner"></div></div>
+          </div>
         </div>
       </div>
       
       <div class="col-span-12 lg:col-span-5">
         <div class="card p-5 h-full">
           <div class="section-title">
-            <h2 class="text-lg font-semibold flex-1">ปฏิทินเศรษฐกิจ</h2>
-            <span class="text-xs text-gray-500">วันนี้</span>
+            <h2 class="text-lg font-semibold flex-1">ปฏิทินเศรษฐกิจ (Economic Calendar)</h2>
+            <span class="text-xs text-gray-500">Live Data</span>
           </div>
-          <div class="space-y-2 max-h-[600px] overflow-y-auto pr-2" id="calendar-container"></div>
+          <div class="tv-calendar-wrapper" id="tv-calendar">
+            <div class="loader"><div class="spinner"></div></div>
+          </div>
         </div>
       </div>
     </div>
@@ -658,75 +547,162 @@
     <footer class="text-center py-8 text-xs text-gray-600">
       <div class="flex items-center justify-center gap-2 mb-2">
         <i class="fa-solid fa-shield-halved text-yellow-500/50"></i>
-        <span class="mono">PULSEDESK v2.0 — Trading Intelligence</span>
+        <span class="mono">PULSEDESK v3.0 — Real-Time Trading Intelligence</span>
       </div>
-      <p class="text-gray-700">ข้อมูลเพื่อการศึกษาเท่านั้น ไม่ใช่คำแนะนำการลงทุน — Trading involves risk</p>
+      <p class="text-gray-700">ข้อมูลเรียลไทม์โดย TradingView และ Google News RSS — เพื่อการศึกษาเท่านั้น ไม่ใช่คำแนะนำการลงทุน</p>
     </footer>
   </div>
   
   <div class="toast" id="toast"></div>
   
   <script>
-    // ============== DATA ==============
-    const pairs = [
-      { symbol: 'XAU/USD', name: 'Gold Spot / US Dollar', price: 2034.50, change: 12.30, changePct: 0.61, trend: 'bullish', rsi: 71, macd: 'bullish', signal: 'BUY', vol: '1.8x', volLabel: 'High', basePrice: 2034.50 },
-      { symbol: 'EUR/USD', name: 'Euro / US Dollar', price: 1.0856, change: 0.0023, changePct: 0.21, trend: 'bullish', rsi: 58, macd: 'bullish', signal: 'BUY', vol: '1.2x', volLabel: 'Medium', basePrice: 1.0856 },
-      { symbol: 'GBP/USD', name: 'Pound / US Dollar', price: 1.2734, change: -0.0012, changePct: -0.09, trend: 'bearish', rsi: 42, macd: 'bearish', signal: 'SELL', vol: '0.9x', volLabel: 'Medium', basePrice: 1.2734 },
-      { symbol: 'USD/JPY', name: 'US Dollar / Japanese Yen', price: 149.85, change: 0.45, changePct: 0.30, trend: 'bullish', rsi: 65, macd: 'bullish', signal: 'BUY', vol: '1.5x', volLabel: 'High', basePrice: 149.85 },
-      { symbol: 'AUD/USD', name: 'Australian Dollar / US Dollar', price: 0.6585, change: -0.0034, changePct: -0.51, trend: 'bearish', rsi: 38, macd: 'bearish', signal: 'SELL', vol: '0.8x', volLabel: 'Low', basePrice: 0.6585 },
-      { symbol: 'USD/CHF', name: 'US Dollar / Swiss Franc', price: 0.8823, change: 0.0008, changePct: 0.09, trend: 'neutral', rsi: 52, macd: 'neutral', signal: 'HOLD', vol: '0.6x', volLabel: 'Low', basePrice: 0.8823 },
-      { symbol: 'USD/CAD', name: 'US Dollar / Canadian Dollar', price: 1.3545, change: -0.0021, changePct: -0.15, trend: 'bearish', rsi: 45, macd: 'bearish', signal: 'SELL', vol: '1.0x', volLabel: 'Medium', basePrice: 1.3545 },
-      { symbol: 'NZD/USD', name: 'New Zealand Dollar / US Dollar', price: 0.5985, change: 0.0015, changePct: 0.25, trend: 'bullish', rsi: 56, macd: 'bullish', signal: 'BUY', vol: '0.7x', volLabel: 'Low', basePrice: 0.5985 }
-    ];
-    
-    const sessions = [
-      { name: 'Sydney', city: 'ออสเตรเลีย', openUTC: 22, closeUTC: 7, color: '#00d4aa', pairs: ['AUD/USD', 'NZD/USD'], note: 'ช่วงเปิดตลาดเงิน AUD/USD และ NZD/USD' },
-      { name: 'Tokyo', city: 'ญี่ปุ่น', openUTC: 0, closeUTC: 9, color: '#ff8c42', pairs: ['USD/JPY', 'AUD/JPY', 'EUR/JPY'], note: 'ช่วงเปิดตลาดเอเชีย เหมาะกับ JPY crosses' },
-      { name: 'London', city: 'สหราชอาณาจักร', openUTC: 8, closeUTC: 17, color: '#f0b90b', pairs: ['EUR/USD', 'GBP/USD', 'XAU/USD'], note: 'ช่วงเปิดตลาดยุโรป Volume สูงสุด' },
-      { name: 'New York', city: 'สหรัฐฯ', openUTC: 13, closeUTC: 22, color: '#f43f5e', pairs: ['EUR/USD', 'USD/JPY', 'XAU/USD', 'USD/CAD'], note: 'ช่วงเปิดตลาดอเมริกา มีข่าวสำคัญ' }
-    ];
-    
-    const newsData = [
-      { time: '14:32', impact: 'high', currencies: ['USD', 'XAU'], title: 'เฟดคงอัตราดอกเบี้ย 5.25-5.50% ตามคาด พาวเวลล์ยังไม่รีบลดดอกเบี้ย', summary: 'ธนาคารกลางสหรัฐ (Fed) มีมติคงอัตราดอกเบี้ยนโยบายไว้ที่ 5.25-5.50% เป็นการประชุมครั้งที่ 5 ติดต่อกัน เจอโรม พาวเวลล์ ระบุว่าเงินเฟ้อยังสูงกว่าเป้าหมาย 2% และต้องการความมั่นใจมากขึ้นก่อนเริ่มผ่อนคลายนโยบาย ทองคำแรงขึ้นหลังแถลงการณ์ ขณะที่ดอลลาร์อ่อนค่า' },
-      { time: '13:15', impact: 'high', currencies: ['EUR'], title: 'ECB ส่งสัญญาณพร้อมลดดอกเบี้ยในฤดูร้อน หลังเงินเฟ้อยุโรปชะลอ', summary: 'ธนาคารกลางยุโรป (ECB) ให้สัญญาณว่าพร้อมเริ่มลดอัตราดอกเบี้ยได้ในการประชุมเดือนมิถุนายน หลังจากข้อมูลเงินเฟ้อของยูโรโซนชะลอลงเหลือ 2.4% ในเดือนเมษายน คริสติน ลาการ์ด ประธาน ECB ระบุว่านโยบายการเงินจะเป็น data-dependent' },
-      { time: '11:45', impact: 'medium', currencies: ['XAU'], title: 'ทองคำทะยานทำสถิติใหม่ แตะ 2,050 ดอลลาร์ หนุนด้วยความตึงเครียดตะวันออกกลาง', summary: 'ราคาทองคำสะท้านพุ่งขึ้นแตะระดับสูงสุดใหม่ที่ 2,050 ดอลลาร์ต่อออนซ์ หนุนโดยความกังวลเรื่องสถานการณ์ภูมิภาคและแรงซื้อจากธนาคารกลางหลายประเทศ โดยเฉพาะจีนและอินเดีย ที่เพิ่มการถือครองทองคำเป็นประวัติการณ์' },
-      { time: '10:30', impact: 'high', currencies: ['USD', 'JPY'], title: 'NFP เดือนเมษายนเพิ่ม 175,000 ตำแหน่ง ต่ำกว่าคาด ดอลลาร์อ่อน', summary: 'ข้อมูล Non-Farm Payrolls ของสหรัฐออกมาต่ำกว่าคาดการณ์ที่ 240,000 ตำแหน่ง ทำให้ดอลลาร์อ่อนค่าลงทั้งคู่ และตลาดเริ่มคาดการณ์ว่า Fed อาจเริ่มลดดอกเบี้ยได้ในเดือนกันยายน อัตราว่างงานคงที่ที่ 3.9%' },
-      { time: '09:00', impact: 'medium', currencies: ['JPY'], title: 'BOJ แทรกแซงตลาดครั้งที่ 2 หลังเยนแตะ 160 ดอลลาร์ถูกที่สุดในรอบ 34 ปี', summary: 'ธนาคารกลางญี่ปุ่น (BOJ) ถูกเชื่อว่าเข้าแทรกแซงตลาดค่าเงินเยนหลังจาก USD/JPY แตะระดับ 160 ดอลลาร์ต่อเยน ทำให้เยนแข็งค่าขึ้นชั่วคราวกลับเข้าสู่ระดับ 155 แต่ผู้เชี่ยวชาญมองว่าแนวโน้มยังเป็นขาอ่อน' },
-      { time: '07:30', impact: 'low', currencies: ['AUD'], title: 'RBA คงอัตราดอกเบี้ย 4.35% แต่ส่งสัญญาณฮอว์กิช ออสซีแข็งค่า', summary: 'ธนาคารกลางออสเตรเลีย (RBA) คงอัตราดอกเบี้ยไว้ที่ 4.35% แต่แสดงความกังวลเรื่องเงินเฟ้อที่ยังสูง ทำให้ตลาดคาดการณ์ว่าอาจมีการขึ้นดอกเบี้ยอีกครั้งในปีนี้ ค่าเงินออสซีแข็งค่าขึ้นเล็กน้อย' },
-      { time: '06:15', impact: 'medium', currencies: ['GBP'], title: 'BOE Bailey เตือน อัตราดอกเบี้ยอาจคงอยู่สูงนานกว่าคาด', summary: 'แอนดรูว์ เบลีย์ ผู้ว่าการธนาคารกลางอังกฤษ (BOE) ระบุว่าอัตราดอกเบี้ยของอังกฤษอาจจำเป็นต้องคงอยู่ในระดับสูงนานกว่าที่ตลาดคาดการณ์ เนื่องจากความดื้อของเงินเฟ้อในภาคบริการ' }
-    ];
-    
-    const calendarData = [
-      { time: '19:30', currency: 'USD', event: 'CPI m/m', impact: 'high', forecast: '0.4%', previous: '0.4%', actual: null },
-      { time: '19:30', currency: 'USD', event: 'Core CPI m/m', impact: 'high', forecast: '0.3%', previous: '0.4%', actual: null },
-      { time: '21:00', currency: 'USD', event: 'Fed Chair Powell Speech', impact: 'high', forecast: '-', previous: '-', actual: null },
-      { time: '14:00', currency: 'GBP', event: 'BOE Gov Bailey Speech', impact: 'medium', forecast: '-', previous: '-', actual: null },
-      { time: '15:30', currency: 'EUR', event: 'ECB President Lagarde Speech', impact: 'medium', forecast: '-', previous: '-', actual: null },
-      { time: '07:50', currency: 'JPY', event: 'BOJ Policy Rate', impact: 'high', forecast: '0.10%', previous: '0.10%', actual: '0.10%' },
-      { time: '13:30', currency: 'CAD', event: 'Employment Change', impact: 'medium', forecast: '20K', previous: '90K', actual: null },
-      { time: '11:30', currency: 'AUD', event: 'RBA Rate Statement', impact: 'high', forecast: '4.35%', previous: '4.35%', actual: '4.35%' },
-      { time: '20:30', currency: 'USD', event: 'Unemployment Claims', impact: 'medium', forecast: '215K', previous: '208K', actual: null },
-      { time: '22:00', currency: 'USD', event: 'FOMC Member Williams Speech', impact: 'low', forecast: '-', previous: '-', actual: null }
-    ];
-    
-    // ============== STATE ==============
-    let selectedPair = pairs[0];
-    let selectedTimeframe = '1H';
-    let mainChartCandles = [];
+    // ============== CONFIG ==============
+    let currentSymbol = "OANDA:XAUUSD";
+    let currentDisplay = "XAU/USD";
     
     // ============== UTILS ==============
-    function fmtPrice(price, symbol) {
-      if (symbol.includes('JPY')) return price.toFixed(2);
-      if (symbol === 'XAU/USD') return price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-      return price.toFixed(4);
-    }
-    
     function showToast(msg) {
       const t = document.getElementById('toast');
       t.textContent = msg;
       t.classList.add('show');
       setTimeout(() => t.classList.remove('show'), 2400);
     }
+    
+    // ============== TRADINGVIEW WIDGETS ==============
+    function loadTradingViewTicker() {
+      const container = document.getElementById('tv-ticker');
+      container.innerHTML = '';
+      
+      const widgetDiv = document.createElement('div');
+      widgetDiv.className = 'tradingview-widget-container__widget';
+      widgetDiv.style.height = '100%';
+      widgetDiv.style.width = '100%';
+      container.appendChild(widgetDiv);
+      
+      const script = document.createElement('script');
+      script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js';
+      script.async = true;
+      script.innerHTML = JSON.stringify({
+        symbols: [
+          { proName: "OANDA:XAUUSD", title: "Gold" },
+          { proName: "OANDA:EURUSD", title: "EUR/USD" },
+          { proName: "OANDA:GBPUSD", title: "GBP/USD" },
+          { proName: "OANDA:USDJPY", title: "USD/JPY" },
+          { proName: "OANDA:AUDUSD", title: "AUD/USD" },
+          { proName: "OANDA:USOIL", title: "Oil" },
+          { proName: "TVC:GOLD", title: "XAU" }
+        ],
+        showSymbolLogo: true,
+        isTransparent: true,
+        displayMode: "adaptive",
+        colorTheme: "dark",
+        locale: "th"
+      });
+      container.appendChild(script);
+    }
+    
+    function loadTradingViewChart(symbol) {
+      const container = document.getElementById('tv-chart');
+      container.innerHTML = '';
+      
+      const widgetDiv = document.createElement('div');
+      widgetDiv.className = 'tradingview-widget-container__widget';
+      widgetDiv.style.height = '100%';
+      widgetDiv.style.width = '100%';
+      container.appendChild(widgetDiv);
+      
+      const script = document.createElement('script');
+      script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
+      script.async = true;
+      script.innerHTML = JSON.stringify({
+        autosize: true,
+        symbol: symbol,
+        interval: "60",
+        timezone: "Asia/Bangkok",
+        theme: "dark",
+        style: "1",
+        locale: "th",
+        backgroundColor: "rgba(13, 17, 23, 1)",
+        gridColor: "rgba(240, 185, 11, 0.05)",
+        hide_side_toolbar: false,
+        allow_symbol_change: false,
+        withdateranges: true,
+        details: false,
+        support_host: "https://www.tradingview.com"
+      });
+      container.appendChild(script);
+    }
+    
+    function loadTradingViewCalendar() {
+      const container = document.getElementById('tv-calendar');
+      container.innerHTML = '';
+      
+      const widgetDiv = document.createElement('div');
+      widgetDiv.className = 'tradingview-widget-container__widget';
+      widgetDiv.style.height = '100%';
+      widgetDiv.style.width = '100%';
+      container.appendChild(widgetDiv);
+      
+      const script = document.createElement('script');
+      script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-events.js';
+      script.async = true;
+      script.innerHTML = JSON.stringify({
+        colorTheme: "dark",
+        isTransparent: true,
+        locale: "th",
+        importanceFilter: "0,1,2",
+        countryFilter: "us,eu,gb,jp,au,cn,ch,ca,nz"
+      });
+      container.appendChild(script);
+    }
+    
+    function loadTradingViewMarketOverview() {
+      const container = document.getElementById('tv-market-overview');
+      container.innerHTML = '';
+      
+      const widgetDiv = document.createElement('div');
+      widgetDiv.className = 'tradingview-widget-container__widget';
+      widgetDiv.style.height = '100%';
+      widgetDiv.style.width = '100%';
+      container.appendChild(widgetDiv);
+      
+      // Using Mini Symbol Overview for each pair
+      const script = document.createElement('script');
+      script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js';
+      script.async = true;
+      script.innerHTML = JSON.stringify({
+        colorTheme: "dark",
+        dateRange: "1D",
+        showChart: true,
+        locale: "th",
+        isTransparent: true,
+        showSymbolLogo: true,
+        showFloatingTooltip: true,
+        width: "100%",
+        height: "100%",
+        tabs: [
+          {
+            title: "Forex & Gold",
+            symbols: [
+              { s: "OANDA:XAUUSD", d: "Gold" },
+              { s: "OANDA:EURUSD", d: "EUR/USD" },
+              { s: "OANDA:GBPUSD", d: "GBP/USD" },
+              { s: "OANDA:USDJPY", d: "USD/JPY" },
+              { s: "OANDA:AUDUSD", d: "AUD/USD" }
+            ]
+          }
+        ]
+      });
+      container.appendChild(script);
+    }
+    
+    // ============== SESSIONS LOGIC ==============
+    const sessions = [
+      { name: 'Sydney', city: 'ออสเตรเลีย', openUTC: 22, closeUTC: 7, color: '#00d4aa', pairs: ['AUD/USD', 'NZD/USD'], note: 'ช่วงเปิดตลาดเงิน AUD/USD และ NZD/USD' },
+      { name: 'Tokyo', city: 'ญี่ปุ่น', openUTC: 0, closeUTC: 9, color: '#ff8c42', pairs: ['USD/JPY', 'AUD/JPY', 'EUR/JPY'], note: 'ช่วงเปิดตลาดเอเชีย เหมาะกับ JPY crosses' },
+      { name: 'London', city: 'สหราชอาณาจักร', openUTC: 8, closeUTC: 17, color: '#f0b90b', pairs: ['EUR/USD', 'GBP/USD', 'XAU/USD'], note: 'ช่วงเปิดตลาดยุโรป Volume สูงสุด' },
+      { name: 'New York', city: 'สหรัฐฯ', openUTC: 13, closeUTC: 22, color: '#f43f5e', pairs: ['EUR/USD', 'USD/JPY', 'XAU/USD', 'USD/CAD'], note: 'ช่วงเปิดตลาดอเมริกา มีข่าวสำคัญ' }
+    ];
     
     function getActiveSessions() {
       const now = new Date();
@@ -738,13 +714,11 @@
         let isActive = false;
         let progress = 0;
         if (s.openUTC < s.closeUTC) {
-          // Normal session (e.g., 8-17)
           isActive = utcTime >= s.openUTC && utcTime < s.closeUTC;
           if (isActive) {
             progress = ((utcTime - s.openUTC) / (s.closeUTC - s.openUTC)) * 100;
           }
         } else {
-          // Overnight session (e.g., 22-7)
           isActive = utcTime >= s.openUTC || utcTime < s.closeUTC;
           const totalDuration = (24 - s.openUTC) + s.closeUTC;
           let elapsed;
@@ -767,7 +741,6 @@
       return `${openH}:00 - ${closeH}:00 UTC`;
     }
     
-    // ============== CLOCK ==============
     function updateClock() {
       const now = new Date();
       const bangkok = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' }));
@@ -781,7 +754,6 @@
       document.getElementById('clock-date').textContent = date + ' • เวลาไทย';
       document.getElementById('utc-time').textContent = 'UTC ' + utcTime;
       
-      // Update market status
       const active = getActiveSessions().filter(s => s.isActive);
       const dot = document.getElementById('market-status-dot');
       const txt = document.getElementById('market-status-text');
@@ -789,6 +761,7 @@
       
       if (active.length > 0) {
         dot.classList.add('active');
+        dot.classList.remove('inactive');
         txt.textContent = 'ตลาดเปิดทำการ';
         cnt.textContent = `${active.length} sessions active • ${active.map(s => s.name).join(' + ')}`;
       } else {
@@ -799,7 +772,6 @@
       }
     }
     
-    // ============== SESSIONS ==============
     function renderSessions() {
       const container = document.getElementById('sessions-container');
       const activeSessions = getActiveSessions();
@@ -814,7 +786,7 @@
           <div style="opacity: ${opacity}; transition: opacity 0.4s ease;">
             <div class="flex items-center justify-between mb-2">
               <div class="flex items-center gap-2.5">
-                <span class="status-dot ${statusClass}" style="${s.isActive ? `background:${s.color}; box-shadow: 0 0 12px ${s.color}; animation: pulse-emerald 2s ease-in-out infinite;` : ''}"></span>
+                <span class="status-dot ${statusClass}" style="${s.isActive ? `background:${s.color}; box-shadow: 0 0 12px ${s.color};` : ''}"></span>
                 <div>
                   <div class="font-semibold text-sm">${s.name}</div>
                   <div class="text-[10px] text-gray-500">${s.city} • ${getSessionTimeLabel(s)}</div>
@@ -830,7 +802,6 @@
         `;
       }).join('');
       
-      // Update recommendation
       const active = activeSessions.filter(s => s.isActive);
       const recText = document.getElementById('session-recommendation');
       if (active.length > 0) {
@@ -840,6 +811,7 @@
       }
       
       renderRecommendedPairs(active);
+      updateAutoAnalysis(active);
     }
     
     function renderRecommendedPairs(activeSessions) {
@@ -849,7 +821,6 @@
       activeSessions.forEach(s => {
         recommendedSymbols.push(...s.pairs);
       });
-      // unique
       recommendedSymbols = [...new Set(recommendedSymbols)];
       
       if (recommendedSymbols.length === 0) {
@@ -863,610 +834,190 @@
         return;
       }
       
-      const recommended = pairs.filter(p => recommendedSymbols.includes(p.symbol))
-        .sort((a, b) => Math.abs(b.changePct) - Math.abs(a.changePct));
-      
-      container.innerHTML = recommended.map(p => {
-        const trendIcon = p.trend === 'bullish' ? 'fa-arrow-trend-up text-emerald-400' : 
-                          p.trend === 'bearish' ? 'fa-arrow-trend-down text-red-400' : 
-                          'fa-minus text-gray-400';
-        const signalColor = p.signal === 'BUY' ? 'text-emerald-400 bg-emerald-400/10' :
-                           p.signal === 'SELL' ? 'text-red-400 bg-red-400/10' :
-                           'text-gray-400 bg-gray-400/10';
-        const changeColor = p.change >= 0 ? 'text-emerald-400' : 'text-red-400';
-        
+      container.innerHTML = recommendedSymbols.map(sym => {
+        const tvSymbol = sym === 'XAU/USD' ? 'OANDA:XAUUSD' : `OANDA:${sym.replace('/', '')}`;
         return `
-          <div class="rec-pair" data-symbol="${p.symbol}">
+          <div class="rec-pair" data-symbol="${tvSymbol}" data-display="${sym}">
             <div class="flex items-center gap-3">
-              <i class="fa-solid ${trendIcon} text-sm"></i>
+              <i class="fa-solid fa-chart-line text-sm text-yellow-400"></i>
               <div>
-                <div class="font-semibold mono text-sm">${p.symbol}</div>
-                <div class="text-[10px] text-gray-500">${p.name}</div>
+                <div class="font-semibold mono text-sm">${sym}</div>
+                <div class="text-[10px] text-gray-500">Click to view chart</div>
               </div>
             </div>
-            <div class="text-right">
-              <div class="mono font-semibold text-sm">${fmtPrice(p.price, p.symbol)}</div>
-              <div class="flex items-center gap-2 justify-end">
-                <span class="mono text-[10px] ${changeColor}">${p.change >= 0 ? '+' : ''}${p.changePct.toFixed(2)}%</span>
-                <span class="text-[9px] mono px-1.5 py-0.5 rounded ${signalColor} font-bold">${p.signal}</span>
-              </div>
-            </div>
+            <i class="fa-solid fa-arrow-right text-gray-600 text-xs"></i>
           </div>
         `;
       }).join('');
       
-      // Attach click handlers
       container.querySelectorAll('.rec-pair').forEach(el => {
         el.addEventListener('click', () => {
           const sym = el.dataset.symbol;
-          const pair = pairs.find(p => p.symbol === sym);
-          if (pair) selectPair(pair);
-        });
-      });
-    }
-    
-    // ============== MAIN CHART ==============
-    function generateCandles(pair, count = 60) {
-      const candles = [];
-      const isGold = pair.symbol === 'XAU/USD';
-      const isJPY = pair.symbol.includes('JPY');
-      const volatility = isGold ? 8 : isJPY ? 0.6 : 0.003;
-      const trendBias = pair.trend === 'bullish' ? 0.4 : pair.trend === 'bearish' ? -0.4 : 0;
-      
-      let price = pair.basePrice - (pair.trend === 'bullish' ? pair.basePrice * 0.01 : pair.trend === 'bearish' ? -pair.basePrice * 0.01 : 0);
-      
-      for (let i = 0; i < count; i++) {
-        const open = price;
-        const change = (Math.random() - 0.5) * volatility * 2 + trendBias * volatility;
-        const close = open + change;
-        const high = Math.max(open, close) + Math.random() * volatility * 0.8;
-        const low = Math.min(open, close) - Math.random() * volatility * 0.8;
-        const volume = 0.5 + Math.random() * 1.5;
-        candles.push({ open, close, high, low, volume });
-        price = close;
-      }
-      
-      // Make last candle close at current price
-      candles[candles.length - 1].close = pair.price;
-      candles[candles.length - 1].high = Math.max(candles[candles.length - 1].high, pair.price);
-      
-      return candles;
-    }
-    
-    function drawMainChart() {
-      const canvas = document.getElementById('main-chart');
-      const ctx = canvas.getContext('2d');
-      const dpr = window.devicePixelRatio || 1;
-      const rect = canvas.getBoundingClientRect();
-      
-      canvas.width = rect.width * dpr;
-      canvas.height = rect.height * dpr;
-      ctx.scale(dpr, dpr);
-      
-      const W = rect.width;
-      const H = rect.height;
-      const padding = { top: 20, right: 70, bottom: 25, left: 12 };
-      const chartW = W - padding.left - padding.right;
-      const chartH = H - padding.top - padding.bottom;
-      
-      // Find min/max
-      let min = Infinity, max = -Infinity;
-      mainChartCandles.forEach(c => {
-        min = Math.min(min, c.low);
-        max = Math.max(max, c.high);
-      });
-      const range = max - min;
-      const padRange = range * 0.08;
-      min -= padRange;
-      max += padRange;
-      
-      // Clear
-      ctx.clearRect(0, 0, W, H);
-      
-      // Grid
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
-      ctx.lineWidth = 1;
-      ctx.font = '10px JetBrains Mono';
-      ctx.fillStyle = '#6b7280';
-      ctx.textAlign = 'left';
-      
-      for (let i = 0; i <= 5; i++) {
-        const y = padding.top + (chartH / 5) * i;
-        ctx.beginPath();
-        ctx.moveTo(padding.left, y);
-        ctx.lineTo(padding.left + chartW, y);
-        ctx.stroke();
-        
-        const price = max - ((max - min) / 5) * i;
-        let priceStr;
-        if (selectedPair.symbol === 'XAU/USD') {
-          priceStr = price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        } else if (selectedPair.symbol.includes('JPY')) {
-          priceStr = price.toFixed(2);
-        } else {
-          priceStr = price.toFixed(4);
-        }
-        ctx.fillText(priceStr, padding.left + chartW + 8, y + 3);
-      }
-      
-      // Vertical grid (time)
-      const verticalCount = 6;
-      for (let i = 0; i <= verticalCount; i++) {
-        const x = padding.left + (chartW / verticalCount) * i;
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.025)';
-        ctx.beginPath();
-        ctx.moveTo(x, padding.top);
-        ctx.lineTo(x, padding.top + chartH);
-        ctx.stroke();
-      }
-      
-      // Candles
-      const candleW = chartW / mainChartCandles.length;
-      const bodyW = Math.max(candleW * 0.55, 2);
-      
-      mainChartCandles.forEach((c, i) => {
-        const x = padding.left + candleW * i + candleW / 2;
-        const openY = padding.top + ((max - c.open) / (max - min)) * chartH;
-        const closeY = padding.top + ((max - c.close) / (max - min)) * chartH;
-        const highY = padding.top + ((max - c.high) / (max - min)) * chartH;
-        const lowY = padding.top + ((max - c.low) / (max - min)) * chartH;
-        
-        const isUp = c.close >= c.open;
-        const color = isUp ? '#00d4aa' : '#ff4757';
-        
-        // Wick
-        ctx.strokeStyle = color;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(x, highY);
-        ctx.lineTo(x, lowY);
-        ctx.stroke();
-        
-        // Body
-        ctx.fillStyle = color;
-        const bodyTop = Math.min(openY, closeY);
-        const bodyH = Math.max(Math.abs(closeY - openY), 1);
-        ctx.fillRect(x - bodyW/2, bodyTop, bodyW, bodyH);
-      });
-      
-      // EMA line (mock)
-      ctx.strokeStyle = 'rgba(240, 185, 11, 0.5)';
-      ctx.lineWidth = 1.5;
-      ctx.beginPath();
-      const emaPeriod = 9;
-      for (let i = emaPeriod - 1; i < mainChartCandles.length; i++) {
-        let sum = 0;
-        for (let j = 0; j < emaPeriod; j++) sum += mainChartCandles[i - j].close;
-        const avg = sum / emaPeriod;
-        const x = padding.left + candleW * i + candleW / 2;
-        const y = padding.top + ((max - avg) / (max - min)) * chartH;
-        if (i === emaPeriod - 1) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      }
-      ctx.stroke();
-      
-      // Current price line
-      const lastPrice = mainChartCandles[mainChartCandles.length - 1].close;
-      const lastY = padding.top + ((max - lastPrice) / (max - min)) * chartH;
-      
-      ctx.strokeStyle = 'rgba(240, 185, 11, 0.4)';
-      ctx.lineWidth = 1;
-      ctx.setLineDash([4, 4]);
-      ctx.beginPath();
-      ctx.moveTo(padding.left, lastY);
-      ctx.lineTo(padding.left + chartW, lastY);
-      ctx.stroke();
-      ctx.setLineDash([]);
-      
-      // Price tag on right
-      ctx.fillStyle = '#f0b90b';
-      ctx.beginPath();
-      ctx.roundRect(padding.left + chartW + 2, lastY - 10, padding.right - 4, 20, 4);
-      ctx.fill();
-      ctx.fillStyle = '#07090f';
-      ctx.font = 'bold 11px JetBrains Mono';
-      ctx.textAlign = 'left';
-      let lastPriceStr;
-      if (selectedPair.symbol === 'XAU/USD') {
-        lastPriceStr = lastPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-      } else if (selectedPair.symbol.includes('JPY')) {
-        lastPriceStr = lastPrice.toFixed(2);
-      } else {
-        lastPriceStr = lastPrice.toFixed(4);
-      }
-      ctx.fillText(lastPriceStr, padding.left + chartW + 6, lastY + 4);
-      
-      // Time labels
-      ctx.fillStyle = '#6b7280';
-      ctx.font = '10px JetBrains Mono';
-      ctx.textAlign = 'center';
-      const timeLabels = ['-1H', '-45m', '-30m', '-15m', 'now'];
-      for (let i = 0; i < timeLabels.length; i++) {
-        const x = padding.left + (chartW / 4) * i;
-        ctx.fillText(timeLabels[i], x, H - 8);
-      }
-    }
-    
-    // ============== MARKET GRID ==============
-    function drawSparkline(canvas, data, color) {
-      const ctx = canvas.getContext('2d');
-      const dpr = window.devicePixelRatio || 1;
-      const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width * dpr;
-      canvas.height = rect.height * dpr;
-      ctx.scale(dpr, dpr);
-      
-      const W = rect.width;
-      const H = rect.height;
-      const min = Math.min(...data);
-      const max = Math.max(...data);
-      const range = max - min || 1;
-      
-      ctx.clearRect(0, 0, W, H);
-      
-      // Gradient fill
-      const gradient = ctx.createLinearGradient(0, 0, 0, H);
-      gradient.addColorStop(0, color + '40');
-      gradient.addColorStop(1, color + '00');
-      
-      ctx.beginPath();
-      data.forEach((v, i) => {
-        const x = (i / (data.length - 1)) * W;
-        const y = H - ((v - min) / range) * (H - 4) - 2;
-        if (i === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      });
-      
-      // Fill
-      ctx.lineTo(W, H);
-      ctx.lineTo(0, H);
-      ctx.closePath();
-      ctx.fillStyle = gradient;
-      ctx.fill();
-      
-      // Line
-      ctx.beginPath();
-      data.forEach((v, i) => {
-        const x = (i / (data.length - 1)) * W;
-        const y = H - ((v - min) / range) * (H - 4) - 2;
-        if (i === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      });
-      ctx.strokeStyle = color;
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
-    }
-    
-    function generateSparklineData(trend) {
-      const data = [];
-      let val = 50;
-      const drift = trend === 'bullish' ? 0.6 : trend === 'bearish' ? -0.6 : 0;
-      for (let i = 0; i < 24; i++) {
-        val += (Math.random() - 0.5) * 8 + drift;
-        val = Math.max(10, Math.min(90, val));
-        data.push(val);
-      }
-      return data;
-    }
-    
-    function renderMarketGrid() {
-      const container = document.getElementById('market-grid');
-      container.innerHTML = pairs.map(p => {
-        const isActive = p.symbol === selectedPair.symbol;
-        const trendColor = p.trend === 'bullish' ? '#00d4aa' : p.trend === 'bearish' ? '#ff4757' : '#6b7280';
-        const trendIcon = p.trend === 'bullish' ? 'fa-arrow-trend-up' : p.trend === 'bearish' ? 'fa-arrow-trend-down' : 'fa-minus';
-        const changeColor = p.change >= 0 ? 'text-emerald-400' : 'text-red-400';
-        const signalBg = p.signal === 'BUY' ? 'bg-emerald-400/15 text-emerald-400 border-emerald-400/30' :
-                        p.signal === 'SELL' ? 'bg-red-400/15 text-red-400 border-red-400/30' :
-                        'bg-gray-400/15 text-gray-400 border-gray-400/30';
-        
-        return `
-          <div class="pair-card ${isActive ? 'active' : ''}" data-symbol="${p.symbol}">
-            <div class="flex items-center justify-between mb-2">
-              <div>
-                <div class="font-bold mono text-sm">${p.symbol}</div>
-                <div class="text-[10px] text-gray-500 truncate" style="max-width: 120px;">${p.name}</div>
-              </div>
-              <i class="fa-solid ${trendIcon} text-xs" style="color: ${trendColor};"></i>
-            </div>
-            <canvas class="sparkline w-full mb-2" style="height: 32px;" data-trend="${p.trend}" data-color="${trendColor}"></canvas>
-            <div class="flex items-center justify-between">
-              <span class="mono font-semibold text-sm">${fmtPrice(p.price, p.symbol)}</span>
-              <span class="mono text-[10px] ${changeColor}">${p.change >= 0 ? '+' : ''}${p.changePct.toFixed(2)}%</span>
-            </div>
-            <div class="flex items-center justify-between mt-1.5">
-              <span class="text-[9px] text-gray-500">RSI <span class="mono" style="color: ${trendColor};">${p.rsi}</span></span>
-              <span class="text-[9px] mono px-1.5 py-0.5 rounded border ${signalBg} font-bold">${p.signal}</span>
-            </div>
-          </div>
-        `;
-      }).join('');
-      
-      // Draw sparklines
-      container.querySelectorAll('.sparkline').forEach(canvas => {
-        const trend = canvas.dataset.trend;
-        const color = canvas.dataset.color;
-        drawSparkline(canvas, generateSparklineData(trend), color);
-      });
-      
-      // Attach click handlers
-      container.querySelectorAll('.pair-card').forEach(card => {
-        card.addEventListener('click', () => {
-          const sym = card.dataset.symbol;
-          const pair = pairs.find(p => p.symbol === sym);
-          if (pair) selectPair(pair);
-        });
-      });
-    }
-    
-    // ============== SELECT PAIR ==============
-    function selectPair(pair) {
-      selectedPair = pair;
-      mainChartCandles = generateCandles(pair);
-      
-      document.getElementById('main-pair-symbol').textContent = pair.symbol;
-      document.getElementById('main-pair-name').textContent = pair.name;
-      document.getElementById('main-pair-price').textContent = fmtPrice(pair.price, pair.symbol);
-      
-      const changeEl = document.getElementById('main-pair-change');
-      const changeColor = pair.change >= 0 ? 'text-emerald-400' : 'text-red-400';
-      changeEl.className = 'text-sm mono font-semibold ' + changeColor;
-      changeEl.textContent = `${pair.change >= 0 ? '+' : ''}${pair.change} (${pair.change >= 0 ? '+' : ''}${pair.changePct.toFixed(2)}%)`;
-      
-      const trendEl = document.getElementById('main-pair-trend');
-      const trendClass = pair.trend === 'bullish' ? 'trend-bullish' : pair.trend === 'bearish' ? 'trend-bearish' : 'trend-neutral';
-      const trendIcon = pair.trend === 'bullish' ? 'fa-arrow-trend-up' : pair.trend === 'bearish' ? 'fa-arrow-trend-down' : 'fa-minus';
-      const trendText = pair.trend === 'bullish' ? 'BULLISH' : pair.trend === 'bearish' ? 'BEARISH' : 'NEUTRAL';
-      trendEl.className = 'trend-badge ' + trendClass;
-      trendEl.innerHTML = `<i class="fa-solid ${trendIcon}"></i> ${trendText}`;
-      
-      // Indicators
-      document.getElementById('ind-rsi').textContent = pair.rsi + (pair.rsi > 70 ? '.2' : pair.rsi < 30 ? '.5' : '.0');
-      const rsiLabel = document.getElementById('ind-rsi-label');
-      if (pair.rsi > 70) {
-        rsiLabel.textContent = 'Overbought';
-        rsiLabel.className = 'text-[10px] mb-1 text-red-400';
-      } else if (pair.rsi < 30) {
-        rsiLabel.textContent = 'Oversold';
-        rsiLabel.className = 'text-[10px] mb-1 text-emerald-400';
-      } else {
-        rsiLabel.textContent = 'Neutral';
-        rsiLabel.className = 'text-[10px] mb-1 text-gray-400';
-      }
-      
-      document.getElementById('ind-macd').textContent = pair.trend === 'bullish' ? '+0.42' : pair.trend === 'bearish' ? '-0.38' : '+0.05';
-      const macdLabel = document.getElementById('ind-macd-label');
-      macdLabel.textContent = pair.macd === 'bullish' ? 'Bullish' : pair.macd === 'bearish' ? 'Bearish' : 'Neutral';
-      macdLabel.className = 'text-[10px] mb-1 ' + (pair.macd === 'bullish' ? 'text-emerald-400' : pair.macd === 'bearish' ? 'text-red-400' : 'text-gray-400');
-      
-      document.getElementById('ind-bb').textContent = pair.trend === 'bullish' ? 'Upper' : pair.trend === 'bearish' ? 'Lower' : 'Middle';
-      document.getElementById('ind-bb-label').textContent = pair.trend === 'bullish' ? 'Breakout' : pair.trend === 'bearish' ? 'Breakdown' : 'Range';
-      
-      document.getElementById('ind-vol').textContent = pair.vol;
-      document.getElementById('ind-vol-label').textContent = pair.volLabel;
-      
-      // Support / Resistance / Pivot
-      const pivot = pair.basePrice;
-      const support = pair.basePrice * (pair.trend === 'bullish' ? 0.992 : 0.985);
-      const resistance = pair.basePrice * (pair.trend === 'bullish' ? 1.008 : 1.005);
-      
-      document.getElementById('support-level').textContent = fmtPrice(support, pair.symbol);
-      document.getElementById('pivot-level').textContent = fmtPrice(pivot, pair.symbol);
-      document.getElementById('resistance-level').textContent = fmtPrice(resistance, pair.symbol);
-      
-      // Signal badge
-      const signalBadge = document.getElementById('signal-badge');
-      const signalClass = pair.signal === 'BUY' ? 'trend-bullish' : pair.signal === 'SELL' ? 'trend-bearish' : 'trend-neutral';
-      const signalIcon = pair.signal === 'BUY' ? 'fa-circle-check' : pair.signal === 'SELL' ? 'fa-circle-xmark' : 'fa-circle-pause';
-      signalBadge.className = 'trend-badge ' + signalClass;
-      signalBadge.innerHTML = `<i class="fa-solid ${signalIcon}"></i> ${pair.signal}`;
-      
-      // Analysis text
-      const analysisText = generateAnalysisText(pair);
-      document.getElementById('analysis-text').textContent = analysisText;
-      
-      // Update active card
-      document.querySelectorAll('.pair-card').forEach(c => c.classList.remove('active'));
-      const activeCard = document.querySelector(`.pair-card[data-symbol="${pair.symbol}"]`);
-      if (activeCard) activeCard.classList.add('active');
-      
-      drawMainChart();
-      showToast(`เปลี่ยนเป็น ${pair.symbol}`);
-    }
-    
-    function generateAnalysisText(pair) {
-      const trendText = pair.trend === 'bullish' ? 'Bullish Continuation' : pair.trend === 'bearish' ? 'Bearish Continuation' : 'Range-bound Consolidation';
-      const trendThai = pair.trend === 'bullish' ? 'ขาขึ้น' : pair.trend === 'bearish' ? 'ขาลง' : 'ไซด์เวย์';
-      const action = pair.signal === 'BUY' ? 'ซื้อตามเทรนด์' : pair.signal === 'SELL' ? 'ขายสั้นตามเทรนด์' : 'รอสังเกตการณ์';
-      
-      let rsiText = '';
-      if (pair.rsi > 70) rsiText = `RSI อยู่ที่ ${pair.rsi} เข้าสู่โซน Overbought แต่ยังไม่มีสัญญาณ Divergence`;
-      else if (pair.rsi < 30) rsiText = `RSI อยู่ที่ ${pair.rsi} อยู่ในโซน Oversold อาจเกิดการรีบาวด์ได้`;
-      else rsiText = `RSI อยู่ที่ ${pair.rsi} ในระดับปกติ`;
-      
-      const support = pair.basePrice * (pair.trend === 'bullish' ? 0.992 : 0.985);
-      const resistance = pair.basePrice * (pair.trend === 'bullish' ? 1.008 : 1.005);
-      
-      return `กราฟ ${pair.symbol} บน timeframe ${selectedTimeframe} กำลังทำพฤติกรรม ${trendText} (${trendThai}) ${rsiText} สนับสนุนแนวโน้ม${trendThai} ปริมาณ Volume ${pair.volLabel} ${pair.signal === 'BUY' ? 'สนับสนุนแรงซื้อ' : pair.signal === 'SELL' ? 'สนับสนุนแรงขาย' : 'ยังไม่ชัดเจน'} แนะนำให้${action} โดยตั้ง Stop Loss ที่ ${fmtPrice(support, pair.symbol)} และ Take Profit ที่ ${fmtPrice(resistance, pair.symbol)}`;
-    }
-    
-    // ============== TICKER ==============
-    function renderTicker() {
-      const container = document.getElementById('ticker');
-      const tickerItems = pairs.concat(pairs).map(p => {
-        const changeColor = p.change >= 0 ? 'text-emerald-400' : 'text-red-400';
-        const arrow = p.change >= 0 ? '▲' : '▼';
-        return `
-          <div class="flex items-center gap-2 px-4">
-            <span class="mono font-bold text-sm">${p.symbol}</span>
-            <span class="mono text-sm text-gray-300">${fmtPrice(p.price, p.symbol)}</span>
-            <span class="mono text-xs ${changeColor}">${arrow} ${Math.abs(p.changePct).toFixed(2)}%</span>
-          </div>
-        `;
-      }).join('');
-      container.innerHTML = tickerItems;
-    }
-    
-    // ============== NEWS ==============
-    function renderNews() {
-      const container = document.getElementById('news-container');
-      container.innerHTML = newsData.map(n => {
-        const impactClass = `impact-${n.impact}`;
-        const impactText = n.impact === 'high' ? 'HIGH IMPACT' : n.impact === 'medium' ? 'MEDIUM' : 'LOW';
-        const currencyTags = n.currencies.map(c => `<span class="text-[10px] mono px-1.5 py-0.5 rounded bg-[#1e2533] text-yellow-400">${c}</span>`).join('');
-        
-        return `
-          <div class="news-item ${n.impact}">
-            <div class="flex items-center gap-2 mb-2 flex-wrap">
-              <span class="text-xs text-gray-500 mono">${n.time}</span>
-              <span class="text-[10px] mono px-1.5 py-0.5 rounded ${impactClass} font-bold">${impactText}</span>
-              ${currencyTags}
-            </div>
-            <h3 class="font-semibold text-sm mb-2 leading-snug">${n.title}</h3>
-            <p class="text-xs text-gray-400 leading-relaxed">${n.summary}</p>
-          </div>
-        `;
-      }).join('');
-    }
-    
-    // ============== CALENDAR ==============
-    function renderCalendar() {
-      const container = document.getElementById('calendar-container');
-      const sorted = [...calendarData].sort((a, b) => a.time.localeCompare(b.time));
-      
-      container.innerHTML = sorted.map(c => {
-        const impactClass = `impact-${c.impact}`;
-        const impactText = c.impact === 'high' ? 'HIGH' : c.impact === 'medium' ? 'MED' : 'LOW';
-        const actualDisplay = c.actual && c.actual !== '-' ? `<span class="mono font-bold text-emerald-400">${c.actual}</span>` : '<span class="text-gray-600">-</span>';
-        
-        return `
-          <div class="cal-item">
-            <div class="text-center">
-              <div class="mono text-xs font-bold">${c.time}</div>
-              <div class="text-[9px] text-gray-600">TH</div>
-            </div>
-            <div class="text-center">
-              <div class="text-xs font-bold text-yellow-400">${c.currency}</div>
-              <div class="text-[9px] mono px-1.5 py-0.5 rounded ${impactClass} mt-1 font-bold">${impactText}</div>
-            </div>
-            <div>
-              <div class="text-sm font-medium">${c.event}</div>
-              <div class="flex gap-3 text-[10px] text-gray-500 mt-1">
-                <span>F: <span class="mono">${c.forecast}</span></span>
-                <span>P: <span class="mono">${c.previous}</span></span>
-                ${c.actual ? `<span>A: ${actualDisplay}</span>` : ''}
-              </div>
-            </div>
-            <div class="text-right">
-              ${c.actual ? '<i class="fa-solid fa-check-circle text-emerald-400 text-xs"></i>' : '<i class="fa-regular fa-clock text-gray-600 text-xs"></i>'}
-            </div>
-          </div>
-        `;
-      }).join('');
-    }
-    
-    // ============== PRICE UPDATES ==============
-    function updatePrices() {
-      pairs.forEach(p => {
-        const volatility = p.symbol === 'XAU/USD' ? 0.8 : p.symbol.includes('JPY') ? 0.15 : 0.0008;
-        const drift = p.trend === 'bullish' ? volatility * 0.3 : p.trend === 'bearish' ? -volatility * 0.3 : 0;
-        const change = (Math.random() - 0.5) * volatility + drift;
-        p.price += change;
-        p.change += change;
-        p.changePct = (p.change / p.basePrice) * 100;
-      });
-      
-      // Update ticker
-      renderTicker();
-      
-      // Update market grid prices
-      document.querySelectorAll('.pair-card').forEach(card => {
-        const sym = card.dataset.symbol;
-        const p = pairs.find(x => x.symbol === sym);
-        if (!p) return;
-        const priceEl = card.querySelector('.mono.font-semibold.text-sm');
-        const changeEl = card.querySelector('.mono.text-\\[10px\\]');
-        if (priceEl) priceEl.textContent = fmtPrice(p.price, p.symbol);
-        if (changeEl) {
-          changeEl.textContent = `${p.change >= 0 ? '+' : ''}${p.changePct.toFixed(2)}%`;
-          changeEl.className = 'mono text-[10px] ' + (p.change >= 0 ? 'text-emerald-400' : 'text-red-400');
-        }
-      });
-      
-      // Update main pair display
-      if (selectedPair) {
-        const p = pairs.find(x => x.symbol === selectedPair.symbol);
-        if (p) {
-          selectedPair = p;
-          document.getElementById('main-pair-price').textContent = fmtPrice(p.price, p.symbol);
-          const changeEl = document.getElementById('main-pair-change');
-          changeEl.textContent = `${p.change >= 0 ? '+' : ''}${p.change.toFixed(p.symbol === 'XAU/USD' ? 2 : 4)} (${p.change >= 0 ? '+' : ''}${p.changePct.toFixed(2)}%)`;
-          
-          // Update last candle
-          if (mainChartCandles.length > 0) {
-            mainChartCandles[mainChartCandles.length - 1].close = p.price;
-            mainChartCandles[mainChartCandles.length - 1].high = Math.max(mainChartCandles[mainChartCandles.length - 1].high, p.price);
-            mainChartCandles[mainChartCandles.length - 1].low = Math.min(mainChartCandles[mainChartCandles.length - 1].low, p.price);
-            drawMainChart();
+          const disp = el.dataset.display;
+          if (sym && sym !== currentSymbol) {
+            changePair(sym, disp);
           }
-        }
+        });
+      });
+    }
+    
+    function changePair(symbol, display) {
+      currentSymbol = symbol;
+      currentDisplay = display;
+      document.getElementById('main-pair-symbol').textContent = display;
+      
+      document.querySelectorAll('.pair-select-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.symbol === symbol);
+      });
+      
+      loadTradingViewChart(symbol);
+      showToast(`เปลี่ยนเป็น ${display}`);
+    }
+    
+    // ============== REAL-TIME NEWS ==============
+    async function fetchNews() {
+      const container = document.getElementById('news-container');
+      
+      // Using Google News RSS for Forex, Gold, and Economy (English & Thai)
+      const feeds = [
+        'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent('https://news.google.com/rss/search?q=forex+OR+gold+OR+federal+reserve+OR+interest+rate+when:2d&hl=en-US&gl=US&ceid=US:en'),
+        'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent('https://news.google.com/rss/search?q=ทองคำ+OR+ค่าเงินบาท+OR+ดอกเบี้ย+OR+เศรษฐกิจ+when:2d&hl=th&gl=TH&ceid=TH:th')
+      ];
+      
+      try {
+        const responses = await Promise.all(feeds.map(url => fetch(url).then(res => res.json())));
+        let allItems = [];
+        
+        responses.forEach(data => {
+          if (data.items) {
+            allItems = allItems.concat(data.items);
+          }
+        });
+        
+        // Sort by pubDate descending
+        allItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+        
+        // Take top 20
+        const topItems = allItems.slice(0, 20);
+        
+        if (topItems.length === 0) throw new Error("No news");
+        
+        container.innerHTML = topItems.map(item => {
+          const date = new Date(item.pubDate);
+          const timeStr = date.toLocaleString('th-TH', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+          
+          // Determine impact based on keywords
+          const title = item.title.toLowerCase();
+          let impact = 'low';
+          if (title.includes('rate') || title.includes('fed') || title.includes('cpi') || title.includes('nonfarm') || title.includes('nfp') || title.includes('decision') || title.includes('ดอกเบี้ย') || title.includes('ขึ้นดอกเบี้ย') || title.includes('เฟด')) {
+            impact = 'high';
+          } else if (title.includes('gold') || title.includes('forex') || title.includes('dollar') || title.includes('inflation') || title.includes('ทองคำ') || title.includesเงินเฟ้อ || title.includes('ค่าเงิน')) {
+            impact = 'medium';
+          }
+          
+          // Clean title (remove source suffix like " - Bloomberg")
+          let cleanTitle = item.title.replace(/\s-\s[^-]+$/, '');
+          if (cleanTitle.length > 120) cleanTitle = cleanTitle.substring(0, 117) + '...';
+          
+          // Extract source
+          const sourceMatch = item.title.match(/\s-\s(.+)$/);
+          const source = sourceMatch ? sourceMatch[1] : 'News';
+          
+          return `
+            <div class="news-item ${impact}">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <span class="text-xs text-gray-500 mono">${timeStr}</span>
+                <span class="text-[10px] mono px-1.5 py-0.5 rounded bg-[#1e2533] text-yellow-400 font-bold">${source}</span>
+              </div>
+              <h3 class="font-semibold text-sm mb-2 leading-snug">${cleanTitle}</h3>
+              ${item.content ? `<p class="text-xs text-gray-500 leading-relaxed line-clamp-2">${item.content.replace(/<[^>]*>?/gm, '').substring(0, 150)}...</p>` : ''}
+              <a href="${item.link}" target="_blank" class="inline-flex items-center gap-1 text-xs text-yellow-400 mt-2 hover:underline">
+                อ่านต่อ <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          `;
+        }).join('');
+        
+      } catch (error) {
+        console.error('News fetch error:', error);
+        container.innerHTML = `
+          <div class="text-center py-10 text-gray-500 text-sm">
+            <i class="fa-solid fa-triangle-exclamation text-2xl mb-2 text-red-400"></i>
+            <p>ไม่สามารถดึงข่าวสดได้ในขณะนี้</p>
+            <p class="text-xs mt-1 text-gray-600">กรุณาลองใหม่อีกครั้ง</p>
+          </div>
+        `;
       }
     }
     
-    // ============== EVENT HANDLERS ==============
-    document.querySelectorAll('.timeframe-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.timeframe-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        selectedTimeframe = btn.dataset.tf;
-        document.getElementById('analysis-tf').textContent = `${selectedTimeframe} Timeframe`;
-        mainChartCandles = generateCandles(selectedPair);
-        drawMainChart();
-        document.getElementById('analysis-text').textContent = generateAnalysisText(selectedPair);
-        showToast(`เปลี่ยน Timeframe เป็น ${selectedTimeframe}`);
-      });
-    });
-    
-    window.addEventListener('resize', () => {
-      drawMainChart();
-      document.querySelectorAll('.sparkline').forEach(canvas => {
-        const trend = canvas.dataset.trend;
-        const color = canvas.dataset.color;
-        drawSparkline(canvas, generateSparklineData(trend), color);
-      });
-    });
+    // ============== AUTO ANALYSIS ==============
+    function updateAutoAnalysis(activeSessions) {
+      const analysisEl = document.getElementById('analysis-text');
+      const now = new Date();
+      const utcH = now.getUTCHours();
+      
+      let sessionText = '';
+      let focusPairs = '';
+      let behaviorText = '';
+      
+      if (activeSessions.length > 0) {
+        sessionText = `ขณะนี้เป็นช่วงเซสชัน ${activeSessions.map(s => s.name).join(' และ ')}`;
+        focusPairs = activeSessions.flatMap(s => s.pairs).join(', ');
+        
+        if (activeSessions.some(s => s.name === 'London') && activeSessions.some(s => s.name === 'New York')) {
+          behaviorText = `การทับซ้อนระหว่างลอนดอนและนิวยอร์ก (London/New York Overlap) ทำให้เกิด Volume สูงสุดของวัน กราฟมักจะแสดงแนวโน้ม (Trend) ที่ชัดเจนและมีการ Breakout ได้ง่าย แนะนำให้เทรดตามเทรนด์ (Trend Following)`;
+        } else if (activeSessions.some(s => s.name === 'New York')) {
+          behaviorText = `ช่วงเปิดตลาดนิวยอร์ก มักมีข่าวเศรษฐกิจสำคัญของสหรัฐฯ ออกมา กราฟอาจมีความผันผวนสูง (High Volatility) โดยเฉพาะคู่เงินที่เกี่ยวข้องกับ USD และทองคำ ควรระวัง Fake Breakout`;
+        } else if (activeSessions.some(s => s.name === 'London')) {
+          behaviorText = `ช่วงเปิดตลาดลอนดอน ซึ่งเป็นเซสชันที่มี Volume สูง มักเกิดการ Set ทิศทางของกราฟในช่วงเช้าของยุโรป ขอแนะนำให้สังเกตการเทรดของสถาบัน (Institutional Trading)`;
+        } else if (activeSessions.some(s => s.name === 'Tokyo')) {
+          behaviorText = `ช่วงเปิดตลาดโตเกียว (Asian Session) กราฟมักจะเคลื่อนไหวใน Range (ไซด์เวย์) ยกเว้นมีข่าวจาก BOJ ควรเน้นเทรดคู่เงินที่มี JPY`;
+        } else {
+          behaviorText = `ช่วงเปิดตลาดซิดนีย์ กราฟมักจะเคลื่อนไหวช้าและ Volume ต่ำ ควรระวังการเกิด Fake Breakout`;
+        }
+      } else {
+        sessionText = `ขณะนี้ไม่มีเซสชันหลักเปิดอยู่`;
+        focusPairs = 'ไม่มีคู่เงินแนะนำเป็นพิเศษ';
+        behaviorText = `กราฟมักจะอยู่ในช่วงพักตัว (Consolidation) หรือไซด์เวย์ ความผันผวนต่ำ ไม่แนะนำให้เทรดเชิงรุก รอเปิดตลาดซิดนีย์เวลา 22:00 UTC`;
+      }
+      
+      analysisEl.innerHTML = `
+        <span class="text-yellow-400 font-semibold">${sessionText}.</span> 
+        คู่เงินที่ควรเฝ้าระวัง ได้แก่ <span class="mono text-emerald-400">${focusPairs}</span>. 
+        ${behaviorText} 
+        <span class="text-gray-500 text-xs block mt-2">*คำแนะนำนี้อิงจากพฤติกรรมตลาดตามเวลาทำการ ผู้เทรดควรตรวจสอบทิศทางจากกราฟ TradingView และข่าวสารปัจจุบันประกอบการตัดสินใจ</span>
+      `;
+    }
     
     // ============== INIT ==============
     function init() {
-      mainChartCandles = generateCandles(selectedPair);
       updateClock();
       renderSessions();
-      renderMarketGrid();
-      renderTicker();
-      renderNews();
-      renderCalendar();
-      selectPair(selectedPair);
+      
+      // Load TradingView Widgets
+      loadTradingViewTicker();
+      loadTradingViewChart(currentSymbol);
+      loadTradingViewCalendar();
+      loadTradingViewMarketOverview();
+      
+      // Fetch News
+      fetchNews();
+      
+      // Event Listeners for pair buttons
+      document.querySelectorAll('.pair-select-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const sym = btn.dataset.symbol;
+          const disp = btn.dataset.display;
+          if (sym !== currentSymbol) {
+            changePair(sym, disp);
+          }
+        });
+      });
       
       // Intervals
       setInterval(updateClock, 1000);
-      setInterval(renderSessions, 30000);
-      setInterval(updatePrices, 2500);
-    }
-    
-    // roundRect polyfill
-    if (!CanvasRenderingContext2D.prototype.roundRect) {
-      CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, r) {
-        if (w < 2 * r) r = w / 2;
-        if (h < 2 * r) r = h / 2;
-        this.beginPath();
-        this.moveTo(x + r, y);
-        this.arcTo(x + w, y, x + w, y + h, r);
-        this.arcTo(x + w, y + h, x, y + h, r);
-        this.arcTo(x, y + h, x, y, r);
-        this.arcTo(x, y, x + w, y, r);
-        this.closePath();
-        return this;
-      };
+      setInterval(renderSessions, 60000); // Update sessions every minute
+      setInterval(fetchNews, 300000); // Refresh news every 5 minutes
     }
     
     init();
