@@ -685,25 +685,31 @@
     }
     
     // ============== TRADINGVIEW WIDGETS (FIXED) ==============
-    // Global function to clean container and inject script
     function injectTVWidget(containerId, scriptSrc, config) {
       const container = document.getElementById(containerId);
       if (!container) return;
       
       // Clear loader/old content
-      container.innerHTML = ''; 
+      container.innerHTML = '';
       
+      // Create wrapper div for the widget
       const widgetDiv = document.createElement('div');
-      widgetDiv.className = 'tradingview-widget-container__widget';
+      widgetDiv.className = 'tradingview-widget-container';
+      widgetDiv.style.height = '100%';
+      widgetDiv.style.width = '100%';
       container.appendChild(widgetDiv);
       
+      // Define the TradingView widget configuration globally BEFORE loading script
+      window['tradingview_widget_config_' + containerId] = config;
+      
+      // Create script element with proper config injection
       const script = document.createElement('script');
       script.src = scriptSrc;
       script.async = true;
       script.type = 'text/javascript';
       
-      // Set config as inline script content
-      script.innerHTML = JSON.stringify(config);
+      // Inject config as a global variable that TradingView will read
+      script.text = 'window.__TRADINGVIEW_CONFIG__ = window[\'tradingview_widget_config_' + containerId + '\'];';
       
       // Handle load error
       script.onerror = function() {
@@ -726,14 +732,14 @@
             <div class="tv-load-error">
               <i class="fa-solid fa-clock"></i>
               <h3>กำลังโหลด... ใช้เวลาสักครู่</h3>
-              <p>หากไม่ปรากฏภายใน 10 วินาที กรุณาลองใหม่อีกครั้ง</p>
+              <p>หากไม่ปรากฏภายใน 15 วินาที กรุณาลองใหม่อีกครั้ง</p>
               <button class="tv-retry-btn" onclick="window.location.reload()">
                 <i class="fa-solid fa-rotate-right"></i> โหลดใหม่
               </button>
             </div>
           `;
         }
-      }, 10000);
+      }, 15000);
       
       // Clear timeout when iframe loads successfully
       const checkInterval = setInterval(function() {
@@ -743,9 +749,9 @@
         }
       }, 500);
       
-      container.appendChild(script);
+      widgetDiv.appendChild(script);
     }
-    
+
     function loadTicker() {
       injectTVWidget('tv-ticker', 'https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js', {
         symbols: [
@@ -762,7 +768,7 @@
         locale: "th"
       });
     }
-    
+
     function loadChart(symbol) {
       injectTVWidget('tv-chart', 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js', {
         autosize: true,
@@ -780,7 +786,7 @@
         support_host: "https://www.tradingview.com"
       });
     }
-    
+
     function loadCalendar() {
       injectTVWidget('tv-calendar', 'https://s3.tradingview.com/external-embedding/embed-widget-events.js', {
         colorTheme: "dark",
@@ -790,7 +796,7 @@
         countryFilter: "us,eu,gb,jp,au,cn,ch,ca,nz"
       });
     }
-    
+
     // ============== SESSIONS LOGIC ==============
     const sessions = [
       { name: 'Sydney', city: 'ออสเตรเลีย', openUTC: 22, closeUTC: 7, color: '#00d4aa', pairs: ['AUD/USD', 'NZD/USD'], note: 'ช่วงเปิดตลาดเงิน AUD/USD และ NZD/USD' },
