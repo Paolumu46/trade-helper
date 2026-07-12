@@ -252,6 +252,52 @@
     box-sizing: border-box !important;
   }
   
+  /* Error state for failed loading */
+  .tv-load-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+    color: var(--text-secondary);
+  }
+  
+  .tv-load-error i {
+    font-size: 48px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+  
+  .tv-load-error h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+  }
+  
+  .tv-load-error p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  
+  .tv-retry-btn {
+    margin-top: 16px;
+    padding: 8px 20px;
+    background: linear-gradient(135deg, var(--gold), var(--orange));
+    color: #07090f;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .tv-retry-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(240, 185, 11, 0.3);
+  }
+  
   /* === NEW: CURRENCY STRENGTH METER === */
   .strength-bar-container {
     height: 6px;
@@ -644,7 +690,8 @@
       const container = document.getElementById(containerId);
       if (!container) return;
       
-      container.innerHTML = ''; // Clear loader/old content
+      // Clear loader/old content
+      container.innerHTML = ''; 
       
       const widgetDiv = document.createElement('div');
       widgetDiv.className = 'tradingview-widget-container__widget';
@@ -654,7 +701,48 @@
       script.src = scriptSrc;
       script.async = true;
       script.type = 'text/javascript';
+      
+      // Set config as inline script content
       script.innerHTML = JSON.stringify(config);
+      
+      // Handle load error
+      script.onerror = function() {
+        container.innerHTML = `
+          <div class="tv-load-error">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <h3>ไม่สามารถโหลด TradingView Widget ได้</h3>
+            <p>อาจเกิดจากปัญหาการเชื่อมต่ออินเทอร์เน็ต<br>หรือถูกบล็อกโดย AdBlock / Firewall</p>
+            <button class="tv-retry-btn" onclick="window.location.reload()">
+              <i class="fa-solid fa-rotate-right"></i> โหลดใหม่
+            </button>
+          </div>
+        `;
+      };
+      
+      // Add timeout for loading
+      const timeoutId = setTimeout(function() {
+        if (container.querySelector('iframe') === null && container.querySelector('.tv-load-error') === null) {
+          container.innerHTML = `
+            <div class="tv-load-error">
+              <i class="fa-solid fa-clock"></i>
+              <h3>กำลังโหลด... ใช้เวลาสักครู่</h3>
+              <p>หากไม่ปรากฏภายใน 10 วินาที กรุณาลองใหม่อีกครั้ง</p>
+              <button class="tv-retry-btn" onclick="window.location.reload()">
+                <i class="fa-solid fa-rotate-right"></i> โหลดใหม่
+              </button>
+            </div>
+          `;
+        }
+      }, 10000);
+      
+      // Clear timeout when iframe loads successfully
+      const checkInterval = setInterval(function() {
+        if (container.querySelector('iframe')) {
+          clearTimeout(timeoutId);
+          clearInterval(checkInterval);
+        }
+      }, 500);
+      
       container.appendChild(script);
     }
     
