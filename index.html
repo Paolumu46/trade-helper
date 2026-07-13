@@ -442,6 +442,401 @@
   .glow-text-gold { text-shadow: 0 0 12px rgba(240, 185, 11, 0.6); }
   .glow-text-emerald { text-shadow: 0 0 12px rgba(0, 212, 170, 0.6); }
   .glow-text-red { text-shadow: 0 0 12px rgba(255, 71, 87, 0.6); }
+  
+  /* === NAVIGATION TABS === */
+  .nav-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 6px;
+    background: var(--bg-elevated);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+  
+  .nav-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+  
+  .nav-tab:hover {
+    background: var(--bg-card-hover);
+    color: var(--text-primary);
+  }
+  
+  .nav-tab.active {
+    background: linear-gradient(135deg, var(--gold), var(--orange));
+    color: #07090f;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(240, 185, 11, 0.2);
+  }
+  
+  .nav-tab i { font-size: 14px; }
+  
+  /* === PAGE SECTIONS === */
+  .page-section {
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .page-section.active {
+    display: block;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* === AI ASSISTANT PANEL === */
+  .ai-chat-container {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .ai-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .ai-message {
+    max-width: 85%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .ai-message.user {
+    align-self: flex-end;
+    background: linear-gradient(135deg, var(--gold), var(--orange));
+    color: #07090f;
+  }
+  
+  .ai-message.assistant {
+    align-self: flex-start;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+  }
+  
+  .ai-input-area {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    border-top: 1px solid var(--border);
+  }
+  
+  .ai-input {
+    flex: 1;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    color: var(--text-primary);
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-size: 14px;
+  }
+  
+  .ai-input:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+  
+  .ai-send-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--gold), var(--orange));
+    border: none;
+    color: #07090f;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  
+  .ai-send-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(240, 185, 11, 0.3);
+  }
+  
+  /* === SIGNAL CARD === */
+  .signal-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    transition: all 0.2s;
+  }
+  
+  .signal-card:hover {
+    border-color: var(--gold);
+    transform: translateX(4px);
+  }
+  
+  .signal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  
+  .signal-direction {
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  .signal-direction.long {
+    background: rgba(0, 212, 170, 0.2);
+    color: var(--emerald);
+  }
+  
+  .signal-direction.short {
+    background: rgba(255, 71, 87, 0.2);
+    color: var(--red);
+  }
+  
+  .signal-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .signal-detail {
+    text-align: center;
+  }
+  
+  .signal-detail-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  
+  .signal-detail-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  .confidence-meter {
+    height: 6px;
+    background: var(--bg-base);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 8px;
+  }
+  
+  .confidence-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.5s ease;
+  }
+  
+  /* === JOURNAL ENTRY === */
+  .journal-entry {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .journal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  
+  .journal-pair {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 16px;
+  }
+  
+  .journal-result {
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  
+  .journal-result.win {
+    background: rgba(0, 212, 170, 0.2);
+    color: var(--emerald);
+  }
+  
+  .journal-result.loss {
+    background: rgba(255, 71, 87, 0.2);
+    color: var(--red);
+  }
+  
+  .journal-notes {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  
+  /* === ALERT ITEM === */
+  .alert-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 8px;
+    transition: all 0.2s;
+  }
+  
+  .alert-item:hover {
+    border-color: var(--border-bright);
+  }
+  
+  .alert-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+  
+  .alert-icon.price { background: rgba(240, 185, 11, 0.2); color: var(--gold); }
+  .alert-icon.pattern { background: rgba(0, 212, 170, 0.2); color: var(--emerald); }
+  .alert-icon.news { background: rgba(255, 71, 87, 0.2); color: var(--red); }
+  
+  .alert-info {
+    flex: 1;
+  }
+  
+  .alert-title {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  
+  .alert-desc {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+  
+  .alert-toggle {
+    width: 44px;
+    height: 24px;
+    background: var(--bg-base);
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .alert-toggle.active {
+    background: var(--emerald);
+  }
+  
+  .alert-toggle::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.2s;
+  }
+  
+  .alert-toggle.active::after {
+    transform: translateX(20px);
+  }
+  
+  /* === DASHBOARD STATS === */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .stat-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+  }
+  
+  .stat-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  
+  .stat-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 24px;
+    font-weight: 700;
+  }
+  
+  .stat-change {
+    font-size: 12px;
+    margin-top: 4px;
+  }
+  
+  .stat-change.positive { color: var(--emerald); }
+  .stat-change.negative { color: var(--red); }
+  
+  /* Risk calculator result box */
+  .calc-result {
+    background: rgba(240, 185, 11, 0.1);
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 12px;
+    text-align: center;
+  }
+  
+  .calc-result-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  
+  .calc-result-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gold);
+  }
 </style>
 </head>
 <body>
@@ -460,17 +855,34 @@
         </div>
         <div>
           <h1 class="display text-3xl font-bold tracking-tight">PULSE<span class="headline-gradient">DESK</span></h1>
-          <p class="text-xs text-gray-500 mono tracking-wider">PRO TRADING INTELLIGENCE TERMINAL</p>
+          <p class="text-xs text-gray-500 mono tracking-wider">AI TRADING ASSISTANT PLATFORM</p>
         </div>
       </div>
       
       <div class="flex items-center gap-3 md:gap-6">
-        <div class="flex items-center gap-3 px-4 py-2 rounded-xl card">
-          <span class="status-dot active" id="market-status-dot"></span>
-          <div>
-            <div class="text-sm font-semibold" id="market-status-text">ตลาดเปิด</div>
-            <div class="text-[10px] text-gray-500 mono" id="active-sessions-count">Calculating...</div>
-          </div>
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+          <button class="nav-tab active" data-page="dashboard">
+            <i class="fa-solid fa-gauge-high"></i> Dashboard
+          </button>
+          <button class="nav-tab" data-page="market">
+            <i class="fa-solid fa-globe"></i> Market
+          </button>
+          <button class="nav-tab" data-page="ai-assistant">
+            <i class="fa-solid fa-robot"></i> AI Assistant
+          </button>
+          <button class="nav-tab" data-page="signals">
+            <i class="fa-solid fa-signal"></i> Signals
+          </button>
+          <button class="nav-tab" data-page="journal">
+            <i class="fa-solid fa-book"></i> Journal
+          </button>
+          <button class="nav-tab" data-page="risk">
+            <i class="fa-solid fa-calculator"></i> Risk
+          </button>
+          <button class="nav-tab" data-page="alerts">
+            <i class="fa-solid fa-bell"></i> Alerts
+          </button>
         </div>
         
         <div class="text-right">
@@ -487,11 +899,16 @@
       </div>
     </div>
     
-    <!-- MAIN GRID -->
-    <div class="grid grid-cols-12 gap-6 mb-6">
+    <!-- PAGE SECTIONS CONTAINER -->
+    <div id="page-container">
       
-      <!-- LEFT COLUMN -->
-      <div class="col-span-12 lg:col-span-4 space-y-6">
+      <!-- DASHBOARD SECTION -->
+      <section id="dashboard-section" class="page-section active">
+        <!-- MAIN GRID -->
+        <div class="grid grid-cols-12 gap-6 mb-6">
+          
+          <!-- LEFT COLUMN -->
+          <div class="col-span-12 lg:col-span-4 space-y-6">
         
         <!-- SESSIONS PANEL -->
         <div class="card p-5">
@@ -685,25 +1102,31 @@
     }
     
     // ============== TRADINGVIEW WIDGETS (FIXED) ==============
-    // Global function to clean container and inject script
     function injectTVWidget(containerId, scriptSrc, config) {
       const container = document.getElementById(containerId);
       if (!container) return;
       
       // Clear loader/old content
-      container.innerHTML = ''; 
+      container.innerHTML = '';
       
+      // Create wrapper div for the widget
       const widgetDiv = document.createElement('div');
-      widgetDiv.className = 'tradingview-widget-container__widget';
+      widgetDiv.className = 'tradingview-widget-container';
+      widgetDiv.style.height = '100%';
+      widgetDiv.style.width = '100%';
       container.appendChild(widgetDiv);
       
+      // Define the TradingView widget configuration globally BEFORE loading script
+      window['tradingview_widget_config_' + containerId] = config;
+      
+      // Create script element with proper config injection
       const script = document.createElement('script');
       script.src = scriptSrc;
       script.async = true;
       script.type = 'text/javascript';
       
-      // Set config as inline script content
-      script.innerHTML = JSON.stringify(config);
+      // Inject config as a global variable that TradingView will read
+      script.text = 'window.__TRADINGVIEW_CONFIG__ = window[\'tradingview_widget_config_' + containerId + '\'];';
       
       // Handle load error
       script.onerror = function() {
@@ -726,14 +1149,14 @@
             <div class="tv-load-error">
               <i class="fa-solid fa-clock"></i>
               <h3>กำลังโหลด... ใช้เวลาสักครู่</h3>
-              <p>หากไม่ปรากฏภายใน 10 วินาที กรุณาลองใหม่อีกครั้ง</p>
+              <p>หากไม่ปรากฏภายใน 15 วินาที กรุณาลองใหม่อีกครั้ง</p>
               <button class="tv-retry-btn" onclick="window.location.reload()">
                 <i class="fa-solid fa-rotate-right"></i> โหลดใหม่
               </button>
             </div>
           `;
         }
-      }, 10000);
+      }, 15000);
       
       // Clear timeout when iframe loads successfully
       const checkInterval = setInterval(function() {
@@ -743,9 +1166,9 @@
         }
       }, 500);
       
-      container.appendChild(script);
+      widgetDiv.appendChild(script);
     }
-    
+
     function loadTicker() {
       injectTVWidget('tv-ticker', 'https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js', {
         symbols: [
@@ -762,7 +1185,7 @@
         locale: "th"
       });
     }
-    
+
     function loadChart(symbol) {
       injectTVWidget('tv-chart', 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js', {
         autosize: true,
@@ -780,7 +1203,7 @@
         support_host: "https://www.tradingview.com"
       });
     }
-    
+
     function loadCalendar() {
       injectTVWidget('tv-calendar', 'https://s3.tradingview.com/external-embedding/embed-widget-events.js', {
         colorTheme: "dark",
@@ -790,7 +1213,7 @@
         countryFilter: "us,eu,gb,jp,au,cn,ch,ca,nz"
       });
     }
-    
+
     // ============== SESSIONS LOGIC ==============
     const sessions = [
       { name: 'Sydney', city: 'ออสเตรเลีย', openUTC: 22, closeUTC: 7, color: '#00d4aa', pairs: ['AUD/USD', 'NZD/USD'], note: 'ช่วงเปิดตลาดเงิน AUD/USD และ NZD/USD' },
@@ -1109,13 +1532,441 @@
         });
       });
       
+      // Navigation tab switching
+      document.querySelectorAll('.nav-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Remove active class from all tabs
+          document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+          // Add active class to clicked tab
+          tab.classList.add('active');
+          
+          // Hide all sections
+          document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+          
+          // Show target section
+          const page = tab.dataset.page;
+          const targetSection = document.getElementById(`${page}-section`);
+          if (targetSection) {
+            targetSection.classList.add('active');
+          } else {
+            // Create section if doesn't exist
+            createPageSection(page);
+          }
+        });
+      });
+      
+      // Function to create page sections dynamically
+      function createPageSection(pageName) {
+        const container = document.getElementById('page-container');
+        const section = document.createElement('section');
+        section.id = `${pageName}-section`;
+        section.className = 'page-section';
+        
+        let content = '';
+        
+        switch(pageName) {
+          case 'market':
+            content = `
+              <div class="grid grid-cols-12 gap-6">
+                <div class="col-span-12 lg:col-span-8">
+                  <div class="card p-5 mb-6">
+                    <div class="section-title">
+                      <h2 class="text-lg font-semibold">Market Overview</h2>
+                    </div>
+                    <div class="tv-wrapper tv-chart-wrapper" style="height: 600px;">
+                      <div class="loader"><div class="spinner"></div></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-span-12 lg:col-span-4 space-y-6">
+                  <div class="card p-5">
+                    <div class="section-title">
+                      <h2 class="text-lg font-semibold">Top Gainers</h2>
+                    </div>
+                    <div class="space-y-3" id="top-gainers"></div>
+                  </div>
+                  <div class="card p-5">
+                    <div class="section-title">
+                      <h2 class="text-lg font-semibold">Top Losers</h2>
+                    </div>
+                    <div class="space-y-3" id="top-losers"></div>
+                  </div>
+                </div>
+              </div>
+            `;
+            break;
+            
+          case 'ai-assistant':
+            content = `
+              <div class="grid grid-cols-12 gap-6">
+                <div class="col-span-12 lg:col-span-8">
+                  <div class="card p-5">
+                    <div class="section-title">
+                      <h2 class="text-lg font-semibold">AI Chart Analysis</h2>
+                    </div>
+                    <div class="tv-wrapper tv-chart-wrapper" style="height: 500px;">
+                      <div class="loader"><div class="spinner"></div></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-span-12 lg:col-span-4">
+                  <div class="card p-5">
+                    <div class="section-title">
+                      <h2 class="text-lg font-semibold">AI Assistant</h2>
+                    </div>
+                    <div class="ai-chat-container">
+                      <div class="ai-messages" id="ai-messages">
+                        <div class="ai-message assistant">
+                          สวัสดีครับ! ผมคือ AI Trading Assistant พร้อมช่วยวิเคราะห์ตลาดและตอบคำถามเกี่ยวกับการเทรด มีอะไรให้ช่วยวันนี้ครับ?
+                        </div>
+                      </div>
+                      <div class="ai-input-area">
+                        <input type="text" class="ai-input" id="ai-input" placeholder="พิมพ์คำถามของคุณ..." />
+                        <button class="ai-send-btn" onclick="sendAIMessage()">
+                          <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+            break;
+            
+          case 'signals':
+            content = `
+              <div class="grid grid-cols-12 gap-6">
+                <div class="col-span-12">
+                  <div class="card p-5">
+                    <div class="section-title">
+                      <h2 class="text-lg font-semibold">AI Trading Signals</h2>
+                      <span class="text-xs text-emerald-400 flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full" style="animation: pulse-emerald 2s infinite;"></span> Live
+                      </span>
+                    </div>
+                    <div id="signals-container">
+                      ${generateSignalCard('EUR/USD', 'long', '1.0850', '1.0820', '1.0920', '78%')}
+                      ${generateSignalCard('XAU/USD', 'short', '2035.50', '2042.00', '2018.00', '82%')}
+                      ${generateSignalCard('GBP/JPY', 'long', '182.30', '181.80', '183.50', '71%')}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+            break;
+            
+          case 'journal':
+            content = `
+              <div class="grid grid-cols-12 gap-6">
+                <div class="col-span-12 lg:col-span-8">
+                  <div class="card p-5">
+                    <div class="section-title">
+                      <h2 class="text-lg font-semibold">Trading Journal</h2>
+                    </div>
+                    <div id="journal-container">
+                      ${generateJournalEntry('EUR/USD', 'win', '+$450', 'Long breakout above resistance. RSI confirmed momentum.', '2024-01-15')}
+                      ${generateJournalEntry('XAU/USD', 'loss', '-$180', 'Early entry before confirmation. Should have waited for candle close.', '2024-01-14')}
+                      ${generateJournalEntry('GBP/USD', 'win', '+$320', 'Perfect SMC setup. Entered at order block with good R:R.', '2024-01-13')}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-span-12 lg:col-span-4">
+                  <div class="card p-5">
+                    <div class="section-title">
+                      <h2 class="text-lg font-semibold">Statistics</h2>
+                    </div>
+                    <div class="stat-grid" style="grid-template-columns: 1fr 1fr;">
+                      <div class="stat-card">
+                        <div class="stat-label">Win Rate</div>
+                        <div class="stat-value glow-text-emerald">68%</div>
+                      </div>
+                      <div class="stat-card">
+                        <div class="stat-label">Profit Factor</div>
+                        <div class="stat-value glow-text-gold">2.4</div>
+                      </div>
+                      <div class="stat-card">
+                        <div class="stat-label">Total Trades</div>
+                        <div class="stat-value">127</div>
+                      </div>
+                      <div class="stat-card">
+                        <div class="stat-label">Avg R:R</div>
+                        <div class="stat-value">1:2.8</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+            break;
+            
+          case 'risk':
+            content = `
+              <div class="grid grid-cols-12 gap-6">
+                <div class="col-span-12 lg:col-span-6">
+                  <div class="card p-5">
+                    <div class="section-title">
+                      <h2 class="text-lg font-semibold">Position Size Calculator</h2>
+                    </div>
+                    <div class="space-y-4">
+                      <div>
+                        <label class="text-xs text-gray-500 mb-2 block">Account Balance ($)</label>
+                        <input type="number" class="calc-input" id="risk-balance" value="10000" />
+                      </div>
+                      <div>
+                        <label class="text-xs text-gray-500 mb-2 block">Risk Percentage (%)</label>
+                        <input type="number" class="calc-input" id="risk-percent" value="1" step="0.1" />
+                      </div>
+                      <div>
+                        <label class="text-xs text-gray-500 mb-2 block">Stop Loss (pips)</label>
+                        <input type="number" class="calc-input" id="risk-sl" value="25" />
+                      </div>
+                      <button class="calc-btn" onclick="calculateRisk()">Calculate Position Size</button>
+                      <div class="calc-result" id="risk-result" style="display: none;">
+                        <div class="calc-result-label">Position Size</div>
+                        <div class="calc-result-value" id="risk-size">0.40 lots</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-span-12 lg:col-span-6">
+                  <div class="card p-5">
+                    <div class="section-title">
+                      <h2 class="text-lg font-semibold">Risk/Reward Calculator</h2>
+                    </div>
+                    <div class="space-y-4">
+                      <div>
+                        <label class="text-xs text-gray-500 mb-2 block">Entry Price</label>
+                        <input type="number" class="calc-input" id="rr-entry" value="1.0850" step="0.0001" />
+                      </div>
+                      <div>
+                        <label class="text-xs text-gray-500 mb-2 block">Stop Loss</label>
+                        <input type="number" class="calc-input" id="rr-sl" value="1.0820" step="0.0001" />
+                      </div>
+                      <div>
+                        <label class="text-xs text-gray-500 mb-2 block">Take Profit</label>
+                        <input type="number" class="calc-input" id="rr-tp" value="1.0920" step="0.0001" />
+                      </div>
+                      <button class="calc-btn" onclick="calculateRR()">Calculate R:R</button>
+                      <div class="calc-result" id="rr-result" style="display: none;">
+                        <div class="calc-result-label">Risk/Reward Ratio</div>
+                        <div class="calc-result-value" id="rr-ratio">1:2.33</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+            break;
+            
+          case 'alerts':
+            content = `
+              <div class="grid grid-cols-12 gap-6">
+                <div class="col-span-12 lg:col-span-8">
+                  <div class="card p-5">
+                    <div class="section-title">
+                      <h2 class="text-lg font-semibold">Active Alerts</h2>
+                    </div>
+                    <div id="alerts-container">
+                      ${generateAlertItem('price', 'XAU/USD', 'Price crosses above $2040', true)}
+                      ${generateAlertItem('pattern', 'EUR/USD', 'Bullish engulfing pattern detected', true)}
+                      ${generateAlertItem('news', 'USD', 'NFP release in 2 hours', false)}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-span-12 lg:col-span-4">
+                  <div class="card p-5">
+                    <div class="section-title">
+                      <h2 class="text-lg font-semibold">Notification Settings</h2>
+                    </div>
+                    <div class="space-y-3">
+                      <div class="flex items-center justify-between">
+                        <span class="text-sm">Email Notifications</span>
+                        <div class="alert-toggle active" onclick="this.classList.toggle('active')"></div>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <span class="text-sm">Push Notifications</span>
+                        <div class="alert-toggle active" onclick="this.classList.toggle('active')"></div>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <span class="text-sm">Telegram</span>
+                        <div class="alert-toggle" onclick="this.classList.toggle('active')"></div>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <span class="text-sm">Discord</span>
+                        <div class="alert-toggle" onclick="this.classList.toggle('active')"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+            break;
+        }
+        
+        section.innerHTML = content;
+        container.appendChild(section);
+        
+        // Load TradingView widgets for new sections
+        if (pageName === 'market') {
+          setTimeout(() => {
+            const marketContainer = section.querySelector('.tv-wrapper');
+            if (marketContainer) {
+              marketContainer.id = 'tv-market-chart';
+              loadWidget('tv-market-chart', 'chart', 'FX:EURUSD');
+            }
+          }, 100);
+        }
+      }
+      
+      // Helper functions for generating HTML
+      function generateSignalCard(pair, direction, entry, sl, tp, confidence) {
+        const directionClass = direction === 'long' ? 'long' : 'short';
+        const directionText = direction === 'long' ? 'BUY' : 'SELL';
+        const confidenceNum = parseInt(confidence);
+        return `
+          <div class="signal-card">
+            <div class="signal-header">
+              <div class="flex items-center gap-3">
+                <span class="mono text-xl font-bold">${pair}</span>
+                <span class="signal-direction ${directionClass}">${directionText}</span>
+              </div>
+              <span class="text-xs text-gray-500">Generated 2 min ago</span>
+            </div>
+            <div class="signal-details">
+              <div class="signal-detail">
+                <div class="signal-detail-label">Entry</div>
+                <div class="signal-detail-value">${entry}</div>
+              </div>
+              <div class="signal-detail">
+                <div class="signal-detail-label">Stop Loss</div>
+                <div class="signal-detail-value" style="color: var(--red);">${sl}</div>
+              </div>
+              <div class="signal-detail">
+                <div class="signal-detail-label">Take Profit</div>
+                <div class="signal-detail-value" style="color: var(--emerald);">${tp}</div>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-center justify-between text-xs mb-1">
+                <span class="text-gray-500">Confidence Score</span>
+                <span class="font-semibold" style="color: var(--gold);">${confidence}</span>
+              </div>
+              <div class="confidence-meter">
+                <div class="confidence-fill" style="width: ${confidenceNum}%; background: linear-gradient(90deg, var(--gold), var(--orange));"></div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      
+      function generateJournalEntry(pair, result, pnl, notes, date) {
+        return `
+          <div class="journal-entry">
+            <div class="journal-header">
+              <div class="flex items-center gap-3">
+                <span class="journal-pair">${pair}</span>
+                <span class="text-xs text-gray-500">${date}</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="journal-result ${result}" style="color: var(--${result === 'win' ? 'emerald' : 'red'});">${pnl}</span>
+                <span class="journal-result ${result}">${result.toUpperCase()}</span>
+              </div>
+            </div>
+            <div class="journal-notes">${notes}</div>
+          </div>
+        `;
+      }
+      
+      function generateAlertItem(type, title, desc, active) {
+        return `
+          <div class="alert-item">
+            <div class="alert-icon ${type}">
+              <i class="fa-solid fa-${type === 'price' ? 'dollar-sign' : type === 'pattern' ? 'chart-line' : 'newspaper'}"></i>
+            </div>
+            <div class="alert-info">
+              <div class="alert-title">${title}</div>
+              <div class="alert-desc">${desc}</div>
+            </div>
+            <div class="alert-toggle ${active ? 'active' : ''}" onclick="this.classList.toggle('active')"></div>
+          </div>
+        `;
+      }
+      
+      // Risk calculator functions
+      function calculateRisk() {
+        const balance = parseFloat(document.getElementById('risk-balance').value);
+        const riskPercent = parseFloat(document.getElementById('risk-percent').value);
+        const stopLoss = parseFloat(document.getElementById('risk-sl').value);
+        
+        const riskAmount = balance * (riskPercent / 100);
+        const positionSize = (riskAmount / (stopLoss * 10)).toFixed(2);
+        
+        document.getElementById('risk-size').textContent = `${positionSize} lots`;
+        document.getElementById('risk-result').style.display = 'block';
+      }
+      
+      function calculateRR() {
+        const entry = parseFloat(document.getElementById('rr-entry').value);
+        const sl = parseFloat(document.getElementById('rr-sl').value);
+        const tp = parseFloat(document.getElementById('rr-tp').value);
+        
+        const risk = Math.abs(entry - sl);
+        const reward = Math.abs(tp - entry);
+        const rr = (reward / risk).toFixed(2);
+        
+        document.getElementById('rr-ratio').textContent = `1:${rr}`;
+        document.getElementById('rr-result').style.display = 'block';
+      }
+      
+      // AI Chat function
+      function sendAIMessage() {
+        const input = document.getElementById('ai-input');
+        const message = input.value.trim();
+        if (!message) return;
+        
+        const messagesContainer = document.getElementById('ai-messages');
+        
+        // Add user message
+        const userMsg = document.createElement('div');
+        userMsg.className = 'ai-message user';
+        userMsg.textContent = message;
+        messagesContainer.appendChild(userMsg);
+        
+        input.value = '';
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        
+        // Simulate AI response
+        setTimeout(() => {
+          const aiMsg = document.createElement('div');
+          aiMsg.className = 'ai-message assistant';
+          
+          // Simple keyword-based responses
+          const lowerMsg = message.toLowerCase();
+          if (lowerMsg.includes('xau') || lowerMsg.includes('gold')) {
+            aiMsg.textContent = 'ทองคำ (XAU/USD) ปัจจุบันมีแนวโน้ม sideways ในช่วง $2030-$2045 แนวรับสำคัญอยู่ที่ $2028 และแนวต้านที่ $2048 RSI อยู่ที่ 52 แสดงโมเมนตัมที่เป็นกลาง แนะนำให้รอ breakout ที่ชัดเจนก่อนเข้าออเดอร์';
+          } else if (lowerMsg.includes('eur') || lowerMsg.includes('usd')) {
+            aiMsg.textContent = 'EUR/USD กำลังทดสอบแนวต้านที่ 1.0880 หากผ่านได้มีโอกาสไปต่อที่ 1.0920 แนวรับอยู่ที่ 1.0820 ควรจับตาดูข้อมูลเศรษฐกิจ EU ที่จะประกาศในวันนี้';
+          } else if (lowerMsg.includes('trend') || lowerMsg.includes('เทรนด์')) {
+            aiMsg.textContent = 'การวิเคราะห์เทรนด์ปัจจุบัน: USD แข็งค่าขึ้นต่อเนื่องจากข้อมูลเศรษฐกิจที่ดี EUR อ่อนแอจากกังวลเรื่องพลังงาน GBP มีความผันผวนสูงจาก Brexit JPY อ่อนค่าจาก BOJ policy';
+          } else {
+            aiMsg.textContent = 'ขอบคุณสำหรับคำถามครับ ผมสามารถช่วยวิเคราะห์กราฟ แนะนำจุดเข้า-ออก คำนวณความเสี่ยง หรืออธิบายคอนเซปต์การเทรดต่างๆ เช่น SMC, ICT, Supply/Demand ได้ มีอะไรให้ช่วยเพิ่มเติมไหมครับ?';
+          }
+          
+          messagesContainer.appendChild(aiMsg);
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }, 1000);
+      }
+      
       setInterval(updateClock, 1000);
       setInterval(renderSessions, 60000);
       setInterval(fetchNews, 300000);
-      setInterval(updateStrengthMeter, 5000); // Update strength meter every 5s
+      setInterval(updateStrengthMeter, 5000);
     }
     
     init();
   </script>
+  
+  <!-- Close dashboard section and page container -->
+  </div></section></div>
 </body>
 </html>
